@@ -10,6 +10,7 @@ Loja virtual responsiva feita com **React + Vite**, com catálogo, busca, filtro
 ![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646cff?logo=vite&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-16a34a)
+![CI](https://github.com/LeonardoCarrilho/loja-virtual/actions/workflows/ci.yml/badge.svg)
 
 ## Design
 
