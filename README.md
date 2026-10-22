@@ -1,5 +1,7 @@
 # Norte Store — Loja Virtual
 
+Repositório: [github.com/LeonardoCarrilho/loja-virtual](https://github.com/LeonardoCarrilho/loja-virtual)
+
 Loja virtual responsiva feita com **React + Vite**, com catálogo, busca, filtros, carrinho persistente e checkout de demonstração.
 
 ![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)
