@@ -1,6 +1,7 @@
 # Norte Store — Loja Virtual
 
-Repositório: [github.com/LeonardoCarrilho/loja-virtual](https://github.com/LeonardoCarrilho/loja-virtual)
+Repositório: [github.com/LeonardoCarrilho/loja-virtual](https://github.com/LeonardoCarrilho/loja-virtual)  
+**Demo:** [leonardocarrilho.github.io/loja-virtual](https://leonardocarrilho.github.io/loja-virtual/)
 
 Loja virtual responsiva feita com **React + Vite**, com catálogo, busca, filtros, carrinho persistente e checkout de demonstração.
 
@@ -9,6 +10,14 @@ Loja virtual responsiva feita com **React + Vite**, com catálogo, busca, filtro
 ![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646cff?logo=vite&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-16a34a)
+
+## Design
+
+Interface editorial em cobalto, preto e branco, com tipografia Archivo, título oversized, sombras duras e uma seção About escura. O objetivo é ter personalidade de marca, não cara de template.
+
+- Layout responsivo com hero em duas colunas no desktop e empilhado no mobile;
+- Carrinho lateral e checkout em modal;
+- Estados de foco, contraste e textos alternativos revisados.
 
 ## Funcionalidades
 
@@ -65,10 +74,13 @@ src/
 
 ## Deploy
 
-Projeto estático, pronto para Vercel, Netlify ou GitHub Pages:
+Publicado no **GitHub Pages**: [leonardocarrilho.github.io/loja-virtual](https://leonardocarrilho.github.io/loja-virtual/).
+
+Projeto estático, pronto também para Vercel ou Netlify:
 
 - **Build command:** `npm run build`
 - **Output directory:** `dist`
+- **Base do Vite:** `./`, para funcionar em subdiretórios
 
 ## Licença
 
