@@ -2,7 +2,7 @@ export default function Header({ count, onOpenCart }) {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="logo" href="#top" aria-label="Norte Store — início">
+        <a className="logo" href="#top">
           <span className="logo-mark" aria-hidden="true">N</span>
           <span>Norte<span className="logo-dot">.</span></span>
         </a>

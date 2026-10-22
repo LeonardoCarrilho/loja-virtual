@@ -4,6 +4,8 @@ Repositório: [github.com/LeonardoCarrilho/loja-virtual](https://github.com/Leon
 
 Loja virtual responsiva feita com **React + Vite**, com catálogo, busca, filtros, carrinho persistente e checkout de demonstração.
 
+![Prévia da loja](docs/preview.png)
+
 ![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646cff?logo=vite&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-16a34a)
