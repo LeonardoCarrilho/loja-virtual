@@ -24,10 +24,15 @@ Interface editorial em cobalto, preto e branco, com tipografia Archivo, título 
 
 - Catálogo com 8 produtos e imagens
 - Busca por nome, descrição ou categoria
-- Filtro por categoria e ordenação por preço/avaliação
+- Filtro por categoria, favoritos e faixa de preço
+- Ordenação por relevância, menor/maior preço, nome A-Z e avaliação
+- Contagem de resultados e botão para limpar todos os filtros
+- Favoritos persistentes no `localStorage`, com contador no header e estado vazio
 - Carrinho lateral com quantidade, remoção e subtotal
+- Limite de quantidade conforme o estoque de cada produto
 - Persistência do carrinho no `localStorage`
 - Cálculo de frete grátis acima de R$ 250
+- Carrinho acessível: fecha com `Esc`, foca ao abrir, devolve o foco ao fechar e anuncia mudanças com `aria-live`
 - Checkout com validação de nome, e-mail e CEP
 - Confirmação de pedido com código gerado
 - Layout responsivo (desktop, tablet e celular)
@@ -48,6 +53,14 @@ npm run build
 npm run preview
 ```
 
+## Testes
+
+Os testes usam **Vitest** com **jsdom** e cobrem o carrinho, os favoritos, os filtros/ordenação do catálogo e a formatação de preço.
+
+```bash
+npm test
+```
+
 ## Estrutura
 
 ```
@@ -58,9 +71,15 @@ src/
 │   ├── CartDrawer.jsx
 │   └── CheckoutModal.jsx
 ├── data/
-│   └── products.js       # catálogo e formatação de preço
+│   └── products.js       # catálogo
 ├── hooks/
-│   └── useCart.js        # carrinho + localStorage
+│   ├── useCart.js        # carrinho + localStorage + estoque
+│   └── useFavorites.js   # favoritos + localStorage
+├── test/
+│   └── renderHook.js     # helper para testar hooks
+├── utils/
+│   ├── catalog.js        # filtros e ordenação
+│   └── format.js         # formatação de preço
 ├── App.jsx
 ├── main.jsx
 └── styles.css
@@ -68,7 +87,7 @@ src/
 
 ## Personalizando
 
-- **Produtos:** edite `src/data/products.js` (nome, preço, categoria, imagem, descrição).
+- **Produtos:** edite `src/data/products.js` (nome, preço, categoria, imagem, descrição e estoque).
 - **Frete grátis:** ajuste `FREE_SHIPPING_FROM` e `SHIPPING_PRICE` em `src/hooks/useCart.js`.
 - **Cores e fontes:** edite as variáveis no topo de `src/styles.css`.
 - **Imagens:** as URLs atuais são do Unsplash. Se uma imagem falhar, o card mostra automaticamente um fundo com emoji.
