@@ -5,6 +5,16 @@ import CartDrawer from "./components/CartDrawer";
 import CheckoutModal from "./components/CheckoutModal";
 import { categories, products } from "./data/products";
 import { useCart } from "./hooks/useCart";
+import { useFavorites } from "./hooks/useFavorites";
+import { formatBRL } from "./utils/format";
+import {
+  ALL_CATEGORIES,
+  SORT_OPTIONS,
+  getPriceBounds,
+  hasActiveFilters,
+  normalizePriceRange,
+  selectProducts,
+} from "./utils/catalog";
 
 function HeroVisual() {
   const [imageFailed, setImageFailed] = useState(false);
@@ -44,30 +54,48 @@ function HeroVisual() {
 
 export default function App() {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("Todos");
+  const [category, setCategory] = useState(ALL_CATEGORIES);
   const [sort, setSort] = useState("relevance");
+  const [onlyFavorites, setOnlyFavorites] = useState(false);
+  const [priceRange, setPriceRange] = useState({ min: null, max: null });
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const cart = useCart();
+  const favorites = useFavorites();
 
-  const visibleProducts = useMemo(() => {
-    const term = query.trim().toLowerCase();
-    let list = products.filter((product) => {
-      const matchesCategory = category === "Todos" || product.category === category;
-      const matchesTerm =
-        !term ||
-        `${product.name} ${product.description} ${product.category}`
-          .toLowerCase()
-          .includes(term);
-      return matchesCategory && matchesTerm;
-    });
+  const priceBounds = useMemo(() => getPriceBounds(products), []);
+  const activePriceRange = useMemo(
+    () => normalizePriceRange(products, priceRange),
+    [priceRange]
+  );
 
-    if (sort === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
-    if (sort === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
-    if (sort === "rating") list = [...list].sort((a, b) => b.rating - a.rating);
+  const visibleProducts = useMemo(
+    () =>
+      selectProducts(products, {
+        query,
+        category,
+        sort,
+        onlyFavorites,
+        favoriteIds: favorites.ids,
+        minPrice: priceRange.min,
+        maxPrice: priceRange.max,
+      }),
+    [query, category, sort, onlyFavorites, favorites.ids, priceRange]
+  );
 
-    return list;
-  }, [query, category, sort]);
+  const quantityByProduct = useMemo(
+    () => new Map(cart.items.map((item) => [item.id, item.qty])),
+    [cart.items]
+  );
+
+  const filtersAreActive = hasActiveFilters({
+    query,
+    category,
+    sort,
+    onlyFavorites,
+    minPrice: priceRange.min,
+    maxPrice: priceRange.max,
+  });
 
   const openCart = () => setCartOpen(true);
   const openCheckout = () => {
@@ -75,11 +103,27 @@ export default function App() {
     setCheckoutOpen(true);
   };
 
+  const handlePriceChange = (field) => (event) => {
+    const value = Number(event.target.value);
+
+    setPriceRange((current) => {
+      const range = normalizePriceRange(products, current);
+
+      return field === "min"
+        ? { min: Math.min(value, range.max), max: range.max }
+        : { min: range.min, max: Math.max(value, range.min) };
+    });
+  };
+
   const clearFilters = () => {
     setQuery("");
-    setCategory("Todos");
+    setCategory(ALL_CATEGORIES);
     setSort("relevance");
+    setOnlyFavorites(false);
+    setPriceRange({ min: null, max: null });
   };
+
+  const favoritesEmpty = onlyFavorites && favorites.count === 0;
 
   return (
     <div id="top">
@@ -87,7 +131,13 @@ export default function App() {
         Frete grátis em pedidos acima de R$ 250 · Troca fácil em 7 dias
       </div>
 
-      <Header count={cart.count} onOpenCart={openCart} />
+      <Header
+        count={cart.count}
+        favoritesCount={favorites.count}
+        onlyFavorites={onlyFavorites}
+        onToggleFavorites={() => setOnlyFavorites((current) => !current)}
+        onOpenCart={openCart}
+      />
 
       <main>
         <section className="hero">
@@ -138,9 +188,10 @@ export default function App() {
                 <span className="eyebrow">Catálogo</span>
                 <h2 id="catalog-title">Escolhas da estação</h2>
               </div>
-              <span className="results-count">
+              <span className="results-count" role="status" aria-live="polite">
                 {visibleProducts.length}{" "}
                 {visibleProducts.length === 1 ? "produto" : "produtos"}
+                {onlyFavorites ? " em favoritos" : ""}
               </span>
             </div>
 
@@ -168,12 +219,66 @@ export default function App() {
               <div className="sort-field">
                 <label htmlFor="sort">Ordenar por</label>
                 <select id="sort" value={sort} onChange={(event) => setSort(event.target.value)}>
-                  <option value="relevance">Relevância</option>
-                  <option value="price-asc">Menor preço</option>
-                  <option value="price-desc">Maior preço</option>
-                  <option value="rating">Melhor avaliação</option>
+                  {SORT_OPTIONS.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
                 </select>
               </div>
+            </div>
+
+            <div className="catalog-filters">
+              <fieldset className="price-field">
+                <legend>Faixa de preço</legend>
+                <div className="price-slider">
+                  <label htmlFor="price-min">Mín.</label>
+                  <input
+                    id="price-min"
+                    type="range"
+                    min={priceBounds.min}
+                    max={priceBounds.max}
+                    step={priceBounds.step}
+                    value={activePriceRange.min}
+                    onChange={handlePriceChange("min")}
+                    aria-valuetext={formatBRL(activePriceRange.min)}
+                  />
+                  <output htmlFor="price-min">{formatBRL(activePriceRange.min)}</output>
+                </div>
+                <div className="price-slider">
+                  <label htmlFor="price-max">Máx.</label>
+                  <input
+                    id="price-max"
+                    type="range"
+                    min={priceBounds.min}
+                    max={priceBounds.max}
+                    step={priceBounds.step}
+                    value={activePriceRange.max}
+                    onChange={handlePriceChange("max")}
+                    aria-valuetext={formatBRL(activePriceRange.max)}
+                  />
+                  <output htmlFor="price-max">{formatBRL(activePriceRange.max)}</output>
+                </div>
+              </fieldset>
+
+              <button
+                type="button"
+                className={`toggle-filter${onlyFavorites ? " is-active" : ""}`}
+                onClick={() => setOnlyFavorites((current) => !current)}
+                aria-pressed={onlyFavorites}
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 20s-7-4.3-7-9.4A4.6 4.6 0 0 1 12 7.1a4.6 4.6 0 0 1 7 3.5C19 15.7 12 20 12 20Z" />
+                </svg>
+                Somente favoritos
+                <span className="filter-count">{favorites.count}</span>
+              </button>
+
+              {filtersAreActive && (
+                <button type="button" className="clear-filters" onClick={clearFilters}>
+                  Limpar filtros
+                </button>
+              )}
             </div>
 
             <div className="category-pills" role="group" aria-label="Filtrar por categoria">
@@ -192,17 +297,30 @@ export default function App() {
 
             {visibleProducts.length === 0 ? (
               <div className="empty-catalog">
-                <span aria-hidden="true">🔎</span>
-                <h3>Nenhum produto encontrado</h3>
-                <p>Tente outro termo ou remova os filtros.</p>
-                <button type="button" className="button" onClick={clearFilters}>
-                  Limpar filtros
-                </button>
+                <span aria-hidden="true">{favoritesEmpty ? "♡" : "🔎"}</span>
+                <h3>{favoritesEmpty ? "Nenhum favorito ainda" : "Nenhum produto encontrado"}</h3>
+                <p>
+                  {favoritesEmpty
+                    ? "Toque no coração dos produtos para montar a sua lista."
+                    : "Tente outro termo, ajuste a faixa de preço ou remova os filtros."}
+                </p>
+                {filtersAreActive && !favoritesEmpty && (
+                  <button type="button" className="button" onClick={clearFilters}>
+                    Limpar filtros
+                  </button>
+                )}
               </div>
             ) : (
               <div className="product-grid">
                 {visibleProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} onAdd={cart.add} />
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    onAdd={cart.add}
+                    isFavorite={favorites.isFavorite(product.id)}
+                    onToggleFavorite={favorites.toggle}
+                    inCartQty={quantityByProduct.get(product.id) ?? 0}
+                  />
                 ))}
               </div>
             )}
