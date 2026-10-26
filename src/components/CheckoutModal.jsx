@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { formatBRL } from "../data/products";
+import { formatBRL } from "../utils/format";
 
 const PAYMENTS = [
   { id: "pix", label: "Pix", hint: "Aprovação imediata" },

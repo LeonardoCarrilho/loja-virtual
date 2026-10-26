@@ -13,6 +13,14 @@ function loadCart() {
   }
 }
 
+function stockOf(item) {
+  return Number.isFinite(item.stock) && item.stock > 0 ? item.stock : Infinity;
+}
+
+function clampQty(qty, stock) {
+  return Math.min(qty, stock);
+}
+
 export function useCart() {
   const [items, setItems] = useState(loadCart);
 
@@ -27,11 +35,15 @@ export function useCart() {
   const add = (product) => {
     setItems((current) => {
       const exists = current.find((item) => item.id === product.id);
+
       if (exists) {
         return current.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+          item.id === product.id
+            ? { ...item, qty: clampQty(item.qty + 1, stockOf(item)) }
+            : item
         );
       }
+
       return [
         ...current,
         {
@@ -40,6 +52,7 @@ export function useCart() {
           price: product.price,
           image: product.image,
           emoji: product.emoji,
+          stock: Number.isFinite(product.stock) ? product.stock : undefined,
           qty: 1,
         },
       ];
@@ -48,7 +61,9 @@ export function useCart() {
 
   const increase = (id) =>
     setItems((current) =>
-      current.map((item) => (item.id === id ? { ...item, qty: item.qty + 1 } : item))
+      current.map((item) =>
+        item.id === id ? { ...item, qty: clampQty(item.qty + 1, stockOf(item)) } : item
+      )
     );
 
   const decrease = (id) =>
