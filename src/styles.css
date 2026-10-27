@@ -2151,3 +2151,20 @@ footer[id] {
     justify-content: center;
   }
 }
+
+
+/* Catálogo editorial: fotografia, serifa e divisórias. */
+:root { --bg: #f6f3ed; --brand: #9b341e; --brand-dark: #742714; --accent: #9b341e; --soft: #eee7dc; --radius: 3px; --display: Georgia, "Times New Roman", serif; }
+.site-header { background: #f6f3edf5; }
+.hero { background: var(--bg); border-bottom: 1px solid #cfc5b7; }
+.hero h1 { font-size: clamp(3.2rem, 6.5vw, 5.8rem); font-weight: 400; }
+.hero-media { border-radius: 0; box-shadow: none; aspect-ratio: 1; background: var(--soft); }
+.hero-visual { width: 100%; }
+.hero-float { position: static; border-radius: 0; box-shadow: none; background: transparent; border: 0; border-bottom: 1px solid #cfc5b7; padding: 12px 0; }
+.hero-float-top { display: none; }
+.button { border-radius: 3px; box-shadow: none; }
+.product-card { border-radius: 0; box-shadow: none; }
+.section-head h2 { font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; }
+.hero-stats { border-top: 1px solid #cfc5b7; padding-top: 20px; }
+.hero h1 { text-transform: none; font-size: clamp(2.8rem, 5.2vw, 4.6rem); overflow-wrap: break-word; }
+.hero-copy { min-width: 0; }
