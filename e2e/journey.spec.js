@@ -1,4 +1,7 @@
 import {test,expect} from "@playwright/test";
+for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
+  test.describe("jornada em " + viewport.width + "px", () => {
+    test.use({ viewport });
 test("checkout rejeita dados inválidos e conclui demonstração",async({page})=>{
  await page.goto("./");
  await page.getByRole("button",{name:/Adicionar .* ao carrinho/}).first().click();
@@ -12,3 +15,6 @@ test("checkout rejeita dados inválidos e conclui demonstração",async({page})=
  await page.getByRole("button",{name:/Confirmar pedido/}).click();
  await expect(page.getByText("Pedido confirmado!")).toBeVisible();
 });
+
+  });
+}
