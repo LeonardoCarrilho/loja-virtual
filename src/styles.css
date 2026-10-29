@@ -2152,33 +2152,102 @@ footer[id] {
   }
 }
 
-/* Identidade visual e layouts responsivos. */
-
-:root { --bg:#f8f5ef; --brand:#a33b27; --brand-dark:#792717; --accent:#a33b27; --soft:#eee7dc; --radius:12px; --display:Georgia,serif; }
+/* Visual refinement and responsive layouts. */
+:root { --bg:#faf7f1; --brand:#9b412e; --brand-dark:#743021; --accent:#9b412e; --soft:#f0e8db; --radius:16px; --display:Georgia,serif; --focus-ring:#9b412e; }
 body { background:var(--bg); }
-.announcement { background:#292723; color:#fff6e6; letter-spacing:.08em; }
-.hero { padding:42px 0 58px; background:#eee8dc; border-bottom:1px solid #d7cdbc; }
-.hero-inner { gap:64px; align-items:center; }
-.hero h1 { text-transform:none; font-family:Georgia,serif; font-weight:400; font-size:clamp(3rem,5.5vw,5.7rem); line-height:1.02; letter-spacing:-.055em; }
-.hero h1 em { color:#a33b27; }
-.hero-copy>p { max-width:40ch; line-height:1.7; }
-.hero-media { border-radius:50% 50% 8px 8px; aspect-ratio:1/1.05; overflow:hidden; background:#dbd2c3; box-shadow:none; border:0; }
+.container { width:min(1240px,calc(100% - 64px)); }
+.announcement { background:#302b25; color:#fff6e6; letter-spacing:.09em; padding:12px 18px; line-height:1.5; }
+.site-header { background:#faf7f1f5; border-bottom:1px solid #e1d8c9; }
+.header-inner { min-height:84px; gap:20px; }
+.logo-mark { border-radius:9px; background:var(--brand); }
+.hero { padding:64px 0; background:#f0e8db; border-bottom:1px solid #e1d8c9; }
+.hero::before { display:none; }
+.hero-inner { gap:clamp(32px,6vw,88px); grid-template-columns:minmax(0,1fr) minmax(0,.88fr); align-items:center; }
+.hero h1 { font-family:Georgia,serif; font-weight:400; text-transform:none; font-size:clamp(3.1rem,5.8vw,5.8rem); line-height:1.02; letter-spacing:-.055em; text-wrap:balance; }
+.hero h1 em { color:var(--brand); }
+.hero-copy>p { font-size:1.05rem; line-height:1.75; max-width:42ch; }
+.hero-visual { padding:14px 14px 0; }
+.hero-media { border-radius:180px 180px 24px 24px; aspect-ratio:1/1; background:#dfd7ca; border:8px solid #faf7f1; box-shadow:12px 16px 0 #d9ccba; overflow:hidden; }
 .hero-media img { width:100%; height:100%; object-fit:cover; }
 .hero-float-top { display:none; }
-.hero-float-bottom { position:static; background:transparent; border:0; box-shadow:none; padding:18px 0 0; }
-.hero-stats { border-top:1px solid #cfc3b1; padding-top:24px; }
-.hero-stats strong { font-family:Georgia,serif; }
-.btn { border-radius:6px; }
-.category-pills { gap:10px; padding:14px 0; border-bottom:1px solid #dfd7ca; }
-.category-pill { border-radius:999px; padding:10px 20px; }
-.catalog-toolbar { padding:20px; background:#fffdfa; border:1px solid #e2dacd; border-radius:12px; }
-.product-grid { gap:26px; }
-.product-card { border:0; background:transparent; box-shadow:none; border-radius:0; }
-.product-card:hover { box-shadow:none; transform:translateY(-4px); }
-.product-image { border-radius:12px; overflow:hidden; background:#e9e3d9; }
-.product-info { padding:18px 0; }
-.product-info h3 { font-family:Georgia,serif; font-size:1.3rem; }
-.section-heading h2 { text-transform:none; font-family:Georgia,serif; font-size:clamp(2rem,4vw,3rem); font-weight:400; }
-.about-section { background:#292723; }
-@media(max-width:767px) { .hero { padding:28px 0; } .hero-inner { gap:28px; } .hero-media { max-height:380px; } .catalog-toolbar { padding:14px; } .product-grid { gap:16px; } }
+.hero-float-bottom { position:static; display:flex; width:max-content; margin:28px auto 0; border:0; border-radius:0; background:transparent; box-shadow:none; padding:0; }
+.float-icon { background:#e5dccd; border-radius:50%; }
+.hero-stats { border-top:1px solid #cdbda7; margin-top:34px; padding-top:22px; }
+.hero-stats dt { font-size:.68rem; }
+.hero-stats dd { font-size:1.5rem; }
+.button { min-height:48px; border-radius:10px; background:var(--brand); border:1px solid var(--brand); box-shadow:none; letter-spacing:.04em; padding:14px 20px; }
+.button:hover { background:var(--brand-dark); box-shadow:0 6px 18px #9b412e18; }
+.section { padding-block:72px; }
+.section-head h2,.about-copy h2 { text-transform:none; font-family:Georgia,serif; font-weight:400; letter-spacing:-.035em; font-size:clamp(2rem,3.5vw,3rem); }
+.catalog-toolbar { padding:18px; background:#fffdfa; border:1px solid #e1d8c9; border-radius:16px; gap:14px; }
+.search-field input,.sort-field { border-radius:10px; background:#f8f5ef; }
+.category-pills { gap:8px; padding-block:18px; }
+.category-pills button { min-height:44px; border-radius:999px; padding:10px 18px; }
+.category-pills button.is-active { background:#302b25; border-color:#302b25; color:white; }
+.product-grid { gap:24px; }
+.product-card { background:#fffdfa; border:1px solid #e7dfd2; border-radius:18px; overflow:hidden; box-shadow:none; }
+.product-card:hover { border-color:#bf9e87; transform:translateY(-4px); box-shadow:0 12px 28px #302b250c; }
+.product-media { border-radius:0; background:#eee8dc; aspect-ratio:1.15; }
+.product-info { padding:22px; }
+.product-info h3 { font-family:Georgia,serif; font-size:1.35rem; font-weight:400; }
+.product-tag { border-radius:999px; }
+.product-bottom { gap:10px; }
+.add-button,.favorite-button { min-width:44px; min-height:44px; border-radius:12px; }
+.add-button { background:var(--brand); color:white; }
+.catalog-filters { gap:14px; }
+.section-soft { background:#302b25; }
+.benefits article { border-radius:16px; }
+.cart-drawer { width:min(460px,100%); }
+.cart-head,.cart-footer { padding:24px; }
+.checkout-modal { border-radius:22px; max-height:calc(100dvh - 32px); overflow-y:auto; }
+.field input { min-height:48px; border-radius:10px; }
+.payment-option { border-radius:12px; }
+.icon-button,.qty-control button { min-width:40px; min-height:40px; }
+@media(max-width:920px) { .hero-inner { grid-template-columns:minmax(0,1fr) minmax(0,.8fr); gap:28px; } .hero h1 { font-size:clamp(2.7rem,6vw,4rem); } }
+@media(max-width:760px) {
+ .container { width:calc(100% - 32px); }
+ .hero-inner { grid-template-columns:minmax(0,1fr); }
+ .hero { padding:32px 0 40px; }
+ .hero h1 { font-size:clamp(2.8rem,11vw,4rem); }
+ .hero-visual { max-width:440px; width:100%; margin:auto; padding-inline:16px; }
+ .hero-media { max-height:360px; }
+ .hero-stats { margin-top:24px; }
+ .section { padding-block:44px; }
+ .header-inner { min-height:72px; gap:10px; }
+ .catalog-toolbar { padding:12px; }
+ .product-grid { gap:12px; }
+ .product-info { padding:16px; }
+}
+@media(max-width:420px) {
+ .product-grid { grid-template-columns:minmax(0,1fr); }
+ .header-actions { gap:6px; }
+ .cart-button,.favorites-button { min-height:44px; padding:8px; border-radius:10px; }
+ .logo { font-size:1.3rem; gap:6px; }
+ .logo-mark { width:30px; height:30px; }
+ .field-row { grid-template-columns:minmax(0,1fr); }
+ .payment-options { grid-template-columns:minmax(0,1fr); }
+ .checkout-modal { padding:24px 18px; width:calc(100% - 24px); }
+ .hero-actions { align-items:flex-start; }
+}
 
+/* Layout resilience and accessible interaction. */
+html { scroll-padding-top: 100px; }
+img { max-width: 100%; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button, input, select, textarea { touch-action: manipulation; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--focus-ring, #2563eb); outline-offset: 4px; }
+input, select, textarea { max-width: 100%; }
+@media (max-width: 600px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), :is(select, textarea):not([hidden]):not([disabled]) { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+@media(max-width:760px) { .header-actions { margin-left:auto; } }
+
+.section-soft { color:#fff7e9; }
+.section-soft .about-copy p { color:#d3c7b4; }
+.section-soft .eyebrow { color:#e6aa87; }
+.section-soft .benefits article { background:#403930; border-color:#605343; color:#fff7e9; }
+.section-soft .benefits p { color:#e2d5c2; }

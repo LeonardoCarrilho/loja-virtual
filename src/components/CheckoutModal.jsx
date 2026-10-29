@@ -12,16 +12,17 @@ const INITIAL_FORM = { name: "", email: "", cep: "", payment: "pix" };
 function validate(form) {
   const errors = {};
 
-  if (form.name.trim().length < 3) {
+  if (form.name.trim().length < 3 || form.name.length > 80) {
     errors.name = "Informe seu nome completo.";
   }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+  if (form.email.length > 160 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
     errors.email = "Informe um e-mail válido.";
   }
   if (!/^\d{5}-?\d{3}$/.test(form.cep.trim())) {
     errors.cep = "Digite um CEP válido (00000-000).";
   }
 
+  if (!PAYMENTS.some(item => item.id === form.payment)) errors.payment = "Pagamento inválido.";
   return errors;
 }
 
@@ -51,6 +52,7 @@ export default function CheckoutModal({ count, total, onClose, onConfirm }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (order) return;
     const nextErrors = validate(form);
     setErrors(nextErrors);
 
