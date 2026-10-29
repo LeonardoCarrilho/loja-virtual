@@ -1,0 +1,61 @@
+/* Norte: a photographic catalogue with wine-red ink and unframed products. */
+:root { --bg:#f7f3ec; --surface:#fffcf7; --ink:#362422; --muted:#79635f; --line:#d6c9bf; --brand:#732c35; --brand-dark:#4c1823; --accent:#732c35; --soft:#eae0d5; --dark:#362422; --focus-ring:#732c35; }
+.container { width:min(1320px,calc(100% - 80px)); }
+.announcement { background:#732c35; color:#fff8ef; font-family:monospace; letter-spacing:.14em; font-size:.65rem; padding:9px 18px; }
+.site-header { background:#f7f3ec; border-bottom:1px solid #a28d85; }
+.header-inner { min-height:94px; }
+.logo { font-family:Georgia,serif; font-size:2.2rem; font-weight:400; letter-spacing:-.07em; }
+.logo-mark { display:none; }
+.main-nav a { font-family:monospace; letter-spacing:.08em; font-size:.7rem; }
+.cart-button,.favorites-button { background:none; border:0; border-radius:0; border-bottom:1px solid #b59f96; min-height:44px; }
+.hero { padding:42px 0 54px; background:#f7f3ec; border-bottom:1px solid #a28d85; }
+.hero-inner { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:60px; align-items:end; }
+.hero .eyebrow { font-family:monospace; font-size:.65rem; margin-bottom:26px; }
+.hero h1 { font-family:Georgia,serif; color:#362422; font-size:clamp(3.8rem,7vw,7rem); line-height:.96; font-weight:400; letter-spacing:-.055em; max-width:10ch; text-wrap:normal; }
+.hero h1 em { color:#732c35; font-weight:400; }
+.hero-copy>p { max-width:34ch; font-size:.95rem; line-height:1.75; }
+.hero-actions { margin-top:28px; gap:18px; }
+.button { border-radius:0; background:#732c35; border:0; box-shadow:none; padding:17px 24px; font-family:monospace; font-size:.75rem; font-weight:400; }
+.hero-note { font-family:Georgia,serif; font-style:italic; }
+.hero-visual { padding:0 0 20px; }
+.hero-media { aspect-ratio:4/5; border:0; border-radius:0; box-shadow:none; background:#e6ded7; max-height:560px; }
+.hero-media img { object-position:center; }
+.hero-float-bottom { margin:18px 0 0; padding-top:14px; width:100%; border-top:1px solid #a28d85; justify-content:flex-start; font-family:monospace; }
+.float-icon { background:none; border-radius:0; }
+.hero-stats { margin-top:30px; padding-top:18px; border-color:#b49f95; }
+.hero-stats dd { font-weight:400; font-size:1.6rem; }
+.hero-stats dt { font-family:monospace; letter-spacing:.05em; }
+.section { padding-block:64px; }
+.section-head { align-items:end; padding-bottom:24px; border-bottom:1px solid #a28d85; margin-bottom:24px; }
+.section-head h2 { font-family:Georgia,serif; font-weight:400; font-size:clamp(2.5rem,4.2vw,4rem); letter-spacing:-.05em; }
+.catalog-toolbar { border:0; border-radius:0; background:none; padding:0; }
+.search-field,.sort-field { background:none; border:0; border-bottom:1px solid #a28d85; border-radius:0; }
+.search-field input { background:none; border-radius:0; }
+.catalog-filters { border-bottom:1px solid #d6c9bf; padding-bottom:18px; }
+.category-pills button { border-radius:0; border:0; border-bottom:1px solid transparent; background:none; font-family:monospace; }
+.category-pills button.is-active { background:none; color:#732c35; border-color:#732c35; }
+.product-grid { gap:36px 26px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.product-card { background:none; border:0; border-radius:0; overflow:visible; }
+.product-card:hover { transform:none; box-shadow:none; border:0; }
+.product-media { aspect-ratio:4/5; border-radius:0; background:#eae0d5; overflow:hidden; }
+.product-media img { transition:transform .35s; }
+.product-card:hover .product-media img { transform:scale(1.04); }
+.product-info { padding:18px 0 0; }
+.product-info h3 { font-family:Georgia,serif; font-weight:400; font-size:1.6rem; }
+.product-description { color:#79635f; }
+.product-category { font-family:monospace; letter-spacing:.08em; }
+.product-bottom { border-top:1px solid #d6c9bf; padding-top:16px; margin-top:18px; }
+.add-button,.favorite-button,.product-tag { border-radius:0; }
+.section-soft { background:#732c35; border:0; }
+.section-soft .about-copy h2 { color:#fff8ef; font-size:clamp(2.8rem,4vw,4rem); }
+.section-soft .about-copy p,.section-soft .benefits p { color:#e8d5ce; }
+.section-soft .eyebrow { color:#eed8bf; }
+.section-soft .benefits article { background:none; border:0; border-bottom:1px solid #ad7781; border-radius:0; padding:22px 0; }
+.benefits article>span { background:none; }
+.site-footer { background:#362422; }
+.checkout-modal,.cart-drawer,.payment-option,.field input { border-radius:0; }
+.checkout-modal { box-shadow:none; border:1px solid #732c35; }
+.payment-option.is-selected { background:#f0e3e4; }
+@media(max-width:920px) { .container { width:calc(100% - 48px); } .hero-inner { gap:32px; } .hero h1 { font-size:clamp(3.4rem,7.5vw,5rem); } }
+@media(max-width:760px) { .container { width:calc(100% - 32px); } .hero { padding-top:32px; } .hero-inner { grid-template-columns:minmax(0,1fr); gap:36px; } .hero h1 { font-size:clamp(3.8rem,14vw,5.6rem); max-width:12ch; } .hero-visual { max-width:none; width:100%; } .hero-media { max-height:460px; aspect-ratio:1; } .hero-copy>p { max-width:42ch; } .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 16px; } .product-info h3 { font-size:1.4rem; } .header-inner { min-height:76px; } }
+@media(max-width:420px) { .product-grid { grid-template-columns:minmax(0,1fr); } .hero h1 { font-size:3.8rem; } .product-media { aspect-ratio:1.05; } .logo { font-size:2rem; } }
