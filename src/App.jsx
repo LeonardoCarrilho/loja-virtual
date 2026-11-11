@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Header from "./components/Header";
 import ProductCard from "./components/ProductCard";
 import CartDrawer from "./components/CartDrawer";
@@ -33,26 +33,12 @@ function HeroVisual() {
         )}
       </div>
 
-      <div className="hero-float hero-float-top">
-        <span className="float-icon" aria-hidden="true">★</span>
-        <span>
-          <strong>4,8 de 5</strong>
-          <small>avaliação dos clientes</small>
-        </span>
-      </div>
-
-      <div className="hero-float hero-float-bottom">
-        <span className="float-icon" aria-hidden="true">🚚</span>
-        <span>
-          <strong>Frete grátis</strong>
-          <small>acima de R$ 250</small>
-        </span>
-      </div>
     </div>
   );
 }
 
 export default function App() {
+  useEffect(() => { const motionUrl = new URL(import.meta.env.BASE_URL + 'taste/motion/motion.js', document.baseURI).href; const momentsUrl = new URL(import.meta.env.BASE_URL + 'taste/moments/moments.js', document.baseURI).href; import(/* @vite-ignore */ motionUrl).then(m => m.refresh()); import(/* @vite-ignore */ momentsUrl).then(m => m.mountAll?.(document)); }, []);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState(ALL_CATEGORIES);
   const [sort, setSort] = useState("relevance");
@@ -126,9 +112,9 @@ export default function App() {
   const favoritesEmpty = onlyFavorites && favorites.count === 0;
 
   return (
-    <div id="top">
+    <div id="top"><a className="skip-link" href="#main">Ir para o conteúdo</a>
       <div className="announcement">
-        Frete grátis em pedidos acima de R$ 250 · Troca fácil em 7 dias
+        Frete grátis em pedidos acima de R$ 250 · Lista de favoritos em 7 dias
       </div>
 
       <Header
@@ -139,17 +125,16 @@ export default function App() {
         onOpenCart={openCart}
       />
 
-      <main>
-        <section className="hero">
+      <main id="main">
+        <section className="hero" data-enter>
           <div className="container hero-inner">
             <div className="hero-copy">
-              <span className="eyebrow">Nova coleção · 2026</span>
+              <span className="eyebrow">Norte / catálogo 2026</span>
               <h1>
-                Objetos que acompanham o seu <em>dia.</em>
+                Tecnologia para<br />o dia a dia.
               </h1>
               <p>
-                Tecnologia, áudio e acessórios escolhidos para deixar a rotina mais leve,
-                bonita e produtiva.
+                Fones, relógios, acessórios e itens para o seu espaço. Oito produtos para conhecer, comparar e salvar.
               </p>
               <div className="hero-actions">
                 <a className="button" href="#produtos">
@@ -158,23 +143,10 @@ export default function App() {
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </a>
-                <span className="hero-note">Curadoria pequena, escolhas certeiras.</span>
+                <span className="hero-note">8 produtos no catálogo</span>
               </div>
 
-              <dl className="hero-stats">
-                <div>
-                  <dt>Produtos</dt>
-                  <dd>08</dd>
-                </div>
-                <div>
-                  <dt>Avaliação</dt>
-                  <dd>4,8</dd>
-                </div>
-                <div>
-                  <dt>Envio</dt>
-                  <dd>24h</dd>
-                </div>
-              </dl>
+
             </div>
 
             <HeroVisual />
@@ -186,7 +158,7 @@ export default function App() {
             <div className="section-head">
               <div>
                 <span className="eyebrow">Catálogo</span>
-                <h2 id="catalog-title">Escolhas da estação</h2>
+                <h2 id="catalog-title">Produtos e acessórios</h2>
               </div>
               <span className="results-count" role="status" aria-live="polite">
                 {visibleProducts.length}{" "}
@@ -327,13 +299,12 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section section-soft" id="sobre" aria-labelledby="about-title">
+        <section className="section section-soft" id="sobre" data-moment="word-highlight" aria-labelledby="about-title">
           <div className="container about-grid">
             <div className="about-copy">
               <span className="eyebrow">Sobre a Norte</span>
-              <h2 id="about-title">Menos opções, melhores escolhas.</h2>
-              <p>
-                A Norte é uma loja fictícia criada como projeto de portfólio. O catálogo
+              <h2 id="about-title">Uma loja para experimentar.</h2>
+              <p className="mo-wh__text">A Norte é uma loja fictícia criada como projeto de portfólio. O catálogo
                 reúne itens de tecnologia e lifestyle com foco em design, funcionalidade e
                 uma experiência de compra simples.
               </p>
@@ -346,18 +317,18 @@ export default function App() {
             <div className="benefits">
               <article>
                 <span aria-hidden="true">🚚</span>
-                <h3>Envio rápido</h3>
-                <p>Pedidos saem em até 24h úteis.</p>
+                <h3>Carrinho salvo</h3>
+                <p>Seus itens permanecem neste navegador.</p>
               </article>
               <article>
                 <span aria-hidden="true">↩️</span>
                 <h3>Troca fácil</h3>
-                <p>7 dias para trocar sem complicação.</p>
+                <p>Salve produtos para comparar depois.</p>
               </article>
               <article>
                 <span aria-hidden="true">🔒</span>
-                <h3>Compra segura</h3>
-                <p>Dados e pagamento protegidos.</p>
+                <h3>Checkout demonstrativo</h3>
+                <p>Experimente o fluxo sem realizar pagamentos.</p>
               </article>
             </div>
           </div>
