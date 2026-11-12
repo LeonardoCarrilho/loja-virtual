@@ -12,6 +12,13 @@ Os percursos exercitam seis larguras: 320, 390, 768, 820, 1024 e 1440. Verificam
 
 ## Evidências
 
+| Medição da captura | Antes | Depois |
+|---|---|---|
+| Desktop, largura 1440 px | [1440 × 2749](before-1440.png) | [1440 × 3945](after-1440.png) |
+| Celular, largura 390 px | Sem captura anterior comparável | [390 × 7385](after-390.png) |
+
+Dimensões lidas dos arquivos PNG. A altura total não é uma pontuação de qualidade ou desempenho. [Prévia do README](../docs/preview.png).
+
 Antes: before-1440.png (origin/main). Depois: after-1440.png, after-390.png e preview.jpg. Capturas cart-empty, cart, favorites, checkout-errors, checkout e success estão disponíveis em 1440 e 390. docs/preview.png foi atualizado para o README. Capturas extras e crops permanecem locais, fora do Git.
 
 Não há score comparativo de baseline: o antes foi registrado por captura, não por gate. As contagens acima representam as três revisões da implementação. Não foi executado Lighthouse/perf separado nem alegada aprovação completa de acessibilidade. Os testes automatizados e a inspeção visual são evidências limitadas às condições registradas.
