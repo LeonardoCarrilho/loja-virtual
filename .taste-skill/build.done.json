@@ -1,0 +1,11 @@
+{
+ "page": "dist/index.html",
+ "url": null,
+ "root": "dist",
+ "kind": "product",
+ "category": "Tecnologia e acessórios",
+ "primary": "Ver produtos",
+ "rounds": 3,
+ "start": "2026-11-11T23:45:49.722Z",
+ "by": "gate.mjs --start"
+}

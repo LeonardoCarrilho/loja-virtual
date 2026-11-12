@@ -22,6 +22,8 @@ export default function ProductCard({
           <img
             src={product.image}
             alt={product.name}
+            data-source="stand-in"
+            data-subject={product.category}
             loading="lazy"
             onError={() => setImageFailed(true)}
           />

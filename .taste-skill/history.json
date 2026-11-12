@@ -1,0 +1,20 @@
+{
+  "palettes": [
+    "oxblood-grey"
+  ],
+  "types": [
+    "hanken"
+  ],
+  "dealt": [
+    "hanken",
+    "archivo",
+    "fraunces"
+  ],
+  "moments": [
+    {
+      "id": "word-highlight",
+      "at": "2026-11-11T23:45:49.976Z",
+      "seed": "9fe962eb"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ export const products = [
     stock: 12,
     description: "Cancelamento de ruído e até 30h de bateria.",
     image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80",
+      `${import.meta.env.BASE_URL}products/1.jpg`,
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const products = [
     stock: 8,
     description: "Monitor de sono, treinos e notificações no pulso.",
     image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80",
+      `${import.meta.env.BASE_URL}products/2.jpg`,
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ export const products = [
     stock: 6,
     description: "Switches lineares, hot-swap e cabo USB-C.",
     image:
-      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80",
+      `${import.meta.env.BASE_URL}products/3.jpg`,
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ export const products = [
     stock: 20,
     description: "Design ergonômico, silencioso e recarregável.",
     image:
-      "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=700&q=80",
+      `${import.meta.env.BASE_URL}products/4.jpg`,
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ export const products = [
     stock: 9,
     description: "Compartimento para notebook de até 15,6\".",
     image:
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80",
+      `${import.meta.env.BASE_URL}products/5.jpg`,
   },
   {
     id: 6,
@@ -77,7 +77,7 @@ export const products = [
     stock: 14,
     description: "Som 360°, resistente à água e 12h de bateria.",
     image:
-      "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=80",
+      `${import.meta.env.BASE_URL}products/6.jpg`,
   },
   {
     id: 7,
@@ -90,7 +90,7 @@ export const products = [
     stock: 10,
     description: "Luz quente regulável e base minimalista.",
     image:
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80",
+      `${import.meta.env.BASE_URL}products/7.jpg`,
   },
   {
     id: 8,
@@ -103,7 +103,7 @@ export const products = [
     stock: 16,
     description: "Proteção UV400 com armação leve.",
     image:
-      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80",
+      `${import.meta.env.BASE_URL}products/8.jpg`,
   },
 ];
 

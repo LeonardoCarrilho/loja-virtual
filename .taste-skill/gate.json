@@ -1,0 +1,1670 @@
+{
+ "start": "2026-11-11T23:45:49.722Z",
+ "round": 3,
+ "idle": 0,
+ "errors": 0,
+ "status": "open",
+ "history": [
+  {
+   "at": "2026-11-12T00:17:03.213Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 50,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-12T00:53:40.437Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 44,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-12T00:58:24.022Z",
+   "mode": "manual",
+   "status": "open",
+   "fails": 42,
+   "round": 3,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": "dist/index.html",
+  "url": null,
+  "root": "dist",
+  "kind": "product",
+  "category": "Tecnologia e acessórios",
+  "primary": "Ver produtos",
+  "rounds": 3,
+  "start": "2026-11-11T23:45:49.722Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "601ffb493d4f0bdd:da39a3ee",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "601ffb493d4f0bdd",
+ "page": "dist/index.html",
+ "found": {
+  "fails": [
+   {
+    "check": "card-layout",
+    "where": "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\"",
+    "msg": "8 of 8 cards drawn one way (one panel, ground, placement and fragment): copies of one card",
+    "fix": "a card layout at most twice on a page: build the other sections another way",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "card-layout"
+    ],
+    "wheres": [
+     "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\""
+    ]
+   },
+   {
+    "check": "cta",
+    "where": "section#sobre \"Uma loja para experimentar.\"",
+    "msg": "the last section before the footer ends with no button",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "cta"
+    ],
+    "wheres": [
+     "section#sobre \"Uma loja para experimentar.\""
+    ]
+   },
+   {
+    "check": "copy-headings",
+    "where": "h2#about-title \"Uma loja para experimentar.\"",
+    "msg": "\"Uma loja para experimentar.\" names no product, part, place or section (4 headings like it; at most one brand line per page) (and 3 more like it: \"Carrinho salvo\", \"Lista de favoritos\", \"Checkout demonstrativo\")",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-headings"
+    ],
+    "wheres": [
+     "h2#about-title \"Uma loja para experimentar.\""
+    ]
+   },
+   {
+    "check": "photo-repeat",
+    "where": "div.product-grid > article.product-card:nth-of-type(2) > div.product-media > img \"2.jpg\"",
+    "msg": "the photograph 2.jpg is shown 2 times on the page: a picture the visitor has already seen",
+    "fix": "show each view of the product once: the hero side, the product section three-quarter, the use scene, the parts as close-ups or the exploded view, the order rear-quarter",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "photo-repeat"
+    ],
+    "wheres": [
+     "div.product-grid > article.product-card:nth-of-type(2) > div.product-media > img \"2.jpg\""
+    ]
+   },
+   {
+    "check": "product-shown",
+    "where": "div.container.hero-inner > div.hero-visual > div.hero-media > img \"img: Relógio da seleção de tecnologia\"",
+    "msg": "the hero's product is drawn 570 x 402px, 45% of the 1280px content width at 1440px (its img is 628px wide): a product page shows the product at 80% of the content width or more (under 60% FAILs)",
+    "fix": "make the product the hero: the picture across the full content width (a stage as wide as the container, the product filling it, not a rounded box with the product at its middle); a render's still cropped to the product (data-product-fill up to 1.2, a wide view such as side), or the client's photograph at full width",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "product-shown"
+    ],
+    "wheres": [
+     "div.container.hero-inner > div.hero-visual > div.hero-media > img \"img: Relógio da seleção de tecnologia\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"Norte.\"",
+    "msg": "Tab stop 36, a \"Norte.\": its focus change is faint: 1:1 against the ground, 3:1 needed",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"Norte.\""
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a \"Fotografias via Unsplash\"",
+    "msg": "Tab stop 37, a \"Fotografias via Unsplash\": its focus change is faint: 1:1 against the ground, 3:1 needed",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a \"Fotografias via Unsplash\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "footer#contato \"NNorte.Design & tecnologia para o dia a \"",
+    "msg": "the section is 196px tall (0.2 screens), 704px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "footer#contato \"NNorte.Design & tecnologia para o dia a \""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
+    "msg": "the section is 1949px tall (2.2 screens), 149px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height",
+     "screen-height"
+    ],
+    "wheres": [
+     "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
+     "#produtos section.section \"CatálogoProdutos e acessórios8 p\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "section#sobre \"Sobre a NorteUma loja para experimentar.\"",
+    "msg": "the section starts at 2849px, 149px below the screen grid (3 x 900px): sections start on whole screens (SR-2)",
+    "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "section#sobre \"Sobre a NorteUma loja para experimentar.\""
+    ]
+   },
+   {
+    "check": "section-height",
+    "where": "main#main > section.hero \"Norte / catálogo 2026Tecnologia parao di\"",
+    "msg": "the section starts at 114px, 114px below the screen grid (0 x 900px): sections start on whole screens (SR-2)",
+    "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-height"
+    ],
+    "wheres": [
+     "main#main > section.hero \"Norte / catálogo 2026Tecnologia parao di\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "footer#contato \"NNorte.Design & tecnologia para o dia a \"",
+    "msg": "the screen at scroll 3045px (the top of section 4) shows 196px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "footer#contato \"NNorte.Design & tecnologia para o dia a \""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
+    "msg": "the screen at scroll 2700px (stride 3) shows 149px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "section#produtos \"CatálogoProdutos e acessórios8 produtosB\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div#root \"Ir para o conteúdoFrete grátis em pedido\"",
+    "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div#root \"Ir para o conteúdoFrete grátis em pedido\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "main#main > section.hero \"Norte / catálogo 2026Tecnologia parao di\"",
+    "msg": "the section needs exactly one in-flow child .wrap (it has 1 in-flow child, 0 .wrap) (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "main#main > section.hero \"Norte / catálogo 2026Tecnologia parao di\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
+    "msg": "the section needs exactly one in-flow child .wrap (it has 1 in-flow child, 0 .wrap) (and 2 more like it: \"Sobre a NorteUma loja pa\", \"NNorte.Design & tecnolog\") (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "section#produtos \"CatálogoProdutos e acessórios8 produtosB\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "input#search",
+    "msg": "a box over half the container wide runs 80-1065px, not on the container's lines at 80-1360px (SR-6)",
+    "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "input#search"
+    ]
+   },
+   {
+    "check": "stagger",
+    "where": "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\"",
+    "msg": "8 rows start at 2 different left offsets (+9, +0, +12, +9, +12, +12, +0, +12px)",
+    "fix": "start every row of the list on one left edge",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "stagger"
+    ],
+    "wheres": [
+     "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos h3 \"Fone Bluetooth Studio\"",
+    "msg": "starts at x 104; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos h3 \"Fone Bluetooth Studio\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos p.product-description \"Cancelamento de ruído e até 30h \"",
+    "msg": "starts at x 104; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos p.product-description \"Cancelamento de ruído e até 30h \""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos h3 \"Smartwatch Pulse\"",
+    "msg": "starts at x 430; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos h3 \"Smartwatch Pulse\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos p.product-description \"Monitor de sono, treinos e notif\"",
+    "msg": "starts at x 430; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos p.product-description \"Monitor de sono, treinos e notif\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos h3 \"Teclado Mecânico 65%\"",
+    "msg": "starts at x 756; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos h3 \"Teclado Mecânico 65%\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos p.product-description \"Switches lineares, hot-swap e ca\"",
+    "msg": "starts at x 756; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos p.product-description \"Switches lineares, hot-swap e ca\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos h3 \"Mouse Sem Fio Slim\"",
+    "msg": "starts at x 1082; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos h3 \"Mouse Sem Fio Slim\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos p.product-description \"Design ergonômico, silencioso e \"",
+    "msg": "starts at x 1082; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos p.product-description \"Design ergonômico, silencioso e \""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos h3 \"Mochila Urbana 20L\"",
+    "msg": "starts at x 104; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos h3 \"Mochila Urbana 20L\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos p.product-description \"Compartimento para notebook de a\"",
+    "msg": "starts at x 104; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos p.product-description \"Compartimento para notebook de a\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos h3 \"Caixa de Som Mini\"",
+    "msg": "starts at x 430; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos h3 \"Caixa de Som Mini\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos p.product-description \"Som 360°, resistente à água e 12\"",
+    "msg": "starts at x 430; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos p.product-description \"Som 360°, resistente à água e 12\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos h3 \"Luminária de Mesa\"",
+    "msg": "starts at x 756; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos h3 \"Luminária de Mesa\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos p.product-description \"Luz quente regulável e base mini\"",
+    "msg": "starts at x 756; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos p.product-description \"Luz quente regulável e base mini\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos h3 \"Óculos de Sol Norte\"",
+    "msg": "starts at x 1082; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos h3 \"Óculos de Sol Norte\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#produtos p.product-description \"Proteção UV400 com armação leve.\"",
+    "msg": "starts at x 1082; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#produtos p.product-description \"Proteção UV400 com armação leve.\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#sobre h3 \"Carrinho salvo\"",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#sobre h3 \"Carrinho salvo\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#sobre p \"Seus itens permanecem neste nave\"",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#sobre p \"Seus itens permanecem neste nave\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#sobre h3 \"Lista de favoritos\"",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#sobre h3 \"Lista de favoritos\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#sobre p \"Salve produtos para comparar dep\"",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#sobre p \"Salve produtos para comparar dep\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#sobre h3 \"Checkout demonstrativo\"",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#sobre h3 \"Checkout demonstrativo\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#sobre p \"Experimente o fluxo sem realizar\"",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#sobre p \"Experimente o fluxo sem realizar\""
+    ]
+   },
+   {
+    "check": "screen-short",
+    "where": "section.hero.is-still section.hero.is-still \"Norte / catálogo 2026Tecnologia \"",
+    "msg": "786px tall; one screen under the nav is 900px",
+    "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "screen-short"
+    ],
+    "wheres": [
+     "section.hero.is-still section.hero.is-still \"Norte / catálogo 2026Tecnologia \""
+    ]
+   },
+   {
+    "check": "hero-fold",
+    "where": "section.hero.is-still section.hero.is-still \"Norte / catálogo 2026Tecnologia \"",
+    "msg": "starts at y 114, not under the nav",
+    "fix": "the hero fills the first screen alone, its button inside it",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "hero-fold"
+    ],
+    "wheres": [
+     "section.hero.is-still section.hero.is-still \"Norte / catálogo 2026Tecnologia \""
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "caption",
+    "where": "div.container > div.product-grid > article.product-card:nth-of-type(1) > div.product-info \"Áudio Fone Bluetooth Studio Cancelamento\"",
+    "msg": "8 lines of words sit right under a picture, like \"Áudio Fone Bluetooth Studio Cancelamento\": the section's text says it, or the picture speaks for itself",
+    "fix": "no line under a picture: never how it was made, what it shows, what is missing or what will follow (credits: one footer line)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav",
+    "where": "div#top > header.site-header > div.container.header-inner > a.logo \"N Norte.\"",
+    "msg": "the nav is lopsided: its first item starts 13px inside the content's edge (80px), while its last ends on the other edge",
+    "fix": "start the nav's first item and end its last on the content's two edges",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "scroll-reveal",
+    "where": "section#sobre > div.container.about-grid > div.about-copy > p.mo-wh__text \"A Norte é uma loja fictícia criada como \"",
+    "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-headings",
+    "where": "div.product-grid > article.product-card:nth-of-type(6) > div.product-info > h3 \"Caixa de Som Mini\"",
+    "msg": "the card title \"Caixa de Som Mini\" names no product, part, place or section (2 card titles like it) (and 1 more like it: \"Luminária de Mesa\")",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-buttons",
+    "where": "header.site-header > div.container.header-inner > div.header-actions > button.cart-button \"Carrinho\"",
+    "msg": "\"Carrinho\" does not start with a verb (book, buy, try, start, get, see...) (and 1 more like it: \"Ver produtos\")",
+    "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-actions",
+    "where": "(the page)",
+    "msg": "the main action \"Ver produtos\" does not read word for word the same in the closing section",
+    "fix": "few actions, one wording: at most 2 in the hero, the main action word for word in nav, hero and close",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "body-size",
+    "where": "div#top > div.announcement \"Frete grátis em pedidos acima de R$ 250 \"",
+    "msg": "9 of 11 paragraphs of running text are set under 16px (13, 14px)",
+    "fix": "set running text at 16px or more",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "header.site-header > div.container.header-inner > nav.main-nav > a:nth-of-type(3) \"Contato\"",
+    "msg": "\"Contato\" goes to #contato, in the footer",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-credit",
+    "where": "(the page text)",
+    "msg": "1 library source (unsplash): the page credits unsplash; confirm each shows the client's own product, place or people",
+    "fix": "confirm the library photograph shows the client's own product, place or people; otherwise replace it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "header.site-header > div.container.header-inner > nav.main-nav > a:nth-of-type(2) \"Sobre\"",
+    "msg": "\"Sobre\" opens a section headed \"Uma loja para experimentar.\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "focus-visible",
+    "where": "section#produtos > div.container > div.category-pills:nth-of-type(4) > button:nth-of-type(1) \"Todos\"",
+    "msg": "Tab stop 14, button \"Todos\": its focus ring fades in instead of showing at once",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "skip-link",
+    "where": "div#top > a.skip-link \"Ir para o conteúdo\"",
+    "msg": "the first Tab stop is \"Ir para o conteúdo\", not a skip link: a keyboard user tabs through the whole nav on every visit",
+    "fix": "add the starter's skip link as the header's first child: <a class=\"skip-link\" href=\"#top\">Skip to content</a>",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "share-meta",
+    "where": "head",
+    "msg": "the head lacks og:image, twitter:card, an icon: a shared link shows no picture or title of its own",
+    "fix": "copy the head block of starter.html: og tags, twitter:card, the icon and theme-color (references/system.md, Head)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "div#top > header.site-header > div.container.header-inner > a.logo \"N Norte.\"",
+    "msg": "a 106x36px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "select#sort \"Relevância Menor preço Maior preço Nome \"",
+    "msg": "a 144x23px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "input#price-min",
+    "msg": "a 180x32px tap target (and 1 more like it on this screen): under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"N Norte.\"",
+    "msg": "a 106x36px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tap-size",
+    "where": "footer#contato > div.container.footer-inner > div.footer-meta > a \"Fotografias via Unsplash\"",
+    "msg": "a 163x24px tap target: under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
+    "widths": [
+     390,
+     320
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "main#main > section.hero / section#produtos",
+    "msg": "uneven space at the edge of a band: 67px outside its edge, 41px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-set",
+    "where": "div.product-grid > article.product-card:nth-of-type(1) > div.product-media > img \"1.jpg\"",
+    "msg": "7 photographs in more than one look: lightness from 0.44 to 0.83; saturation from 0.00 to 0.89; warm and cool photographs mixed (b* -7 to +58); the odd one out is 1.jpg",
+    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "orphan",
+    "where": "div.product-grid > article.product-card:nth-of-type(5) > div.product-info > p.product-description \"Compartimento para notebook de até 15,6\"\"",
+    "msg": "its last line holds only \"15,6\".\"",
+    "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-stat-strip",
+    "msg": "stat strip x1",
+    "fix": "a strip only of figures the brief gives (a price, hours, a count); otherwise put each number in the sentence it proves, or leave it out (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x1: \"0 / 4.9 / 4.8 / 4.7 /...\"",
+    "exact": false
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 83,
+   "layout": 13
+  }
+ },
+ "open": [
+  {
+   "check": "card-layout",
+   "where": "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\"",
+   "msg": "8 of 8 cards drawn one way (one panel, ground, placement and fragment): copies of one card",
+   "fix": "a card layout at most twice on a page: build the other sections another way",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "card-layout"
+   ],
+   "wheres": [
+    "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\""
+   ]
+  },
+  {
+   "check": "cta",
+   "where": "section#sobre \"Uma loja para experimentar.\"",
+   "msg": "the last section before the footer ends with no button",
+   "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "cta"
+   ],
+   "wheres": [
+    "section#sobre \"Uma loja para experimentar.\""
+   ]
+  },
+  {
+   "check": "copy-headings",
+   "where": "h2#about-title \"Uma loja para experimentar.\"",
+   "msg": "\"Uma loja para experimentar.\" names no product, part, place or section (4 headings like it; at most one brand line per page) (and 3 more like it: \"Carrinho salvo\", \"Lista de favoritos\", \"Checkout demonstrativo\")",
+   "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-headings"
+   ],
+   "wheres": [
+    "h2#about-title \"Uma loja para experimentar.\""
+   ]
+  },
+  {
+   "check": "photo-repeat",
+   "where": "div.product-grid > article.product-card:nth-of-type(2) > div.product-media > img \"2.jpg\"",
+   "msg": "the photograph 2.jpg is shown 2 times on the page: a picture the visitor has already seen",
+   "fix": "show each view of the product once: the hero side, the product section three-quarter, the use scene, the parts as close-ups or the exploded view, the order rear-quarter",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "photo-repeat"
+   ],
+   "wheres": [
+    "div.product-grid > article.product-card:nth-of-type(2) > div.product-media > img \"2.jpg\""
+   ]
+  },
+  {
+   "check": "product-shown",
+   "where": "div.container.hero-inner > div.hero-visual > div.hero-media > img \"img: Relógio da seleção de tecnologia\"",
+   "msg": "the hero's product is drawn 570 x 402px, 45% of the 1280px content width at 1440px (its img is 628px wide): a product page shows the product at 80% of the content width or more (under 60% FAILs)",
+   "fix": "make the product the hero: the picture across the full content width (a stage as wide as the container, the product filling it, not a rounded box with the product at its middle); a render's still cropped to the product (data-product-fill up to 1.2, a wide view such as side), or the client's photograph at full width",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "product-shown"
+   ],
+   "wheres": [
+    "div.container.hero-inner > div.hero-visual > div.hero-media > img \"img: Relógio da seleção de tecnologia\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"Norte.\"",
+   "msg": "Tab stop 36, a \"Norte.\": its focus change is faint: 1:1 against the ground, 3:1 needed",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"Norte.\""
+   ]
+  },
+  {
+   "check": "focus-visible",
+   "where": "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a \"Fotografias via Unsplash\"",
+   "msg": "Tab stop 37, a \"Fotografias via Unsplash\": its focus change is faint: 1:1 against the ground, 3:1 needed",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a \"Fotografias via Unsplash\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "footer#contato \"NNorte.Design & tecnologia para o dia a \"",
+   "msg": "the section is 196px tall (0.2 screens), 704px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "footer#contato \"NNorte.Design & tecnologia para o dia a \""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
+   "msg": "the section is 1949px tall (2.2 screens), 149px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height",
+    "screen-height"
+   ],
+   "wheres": [
+    "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
+    "#produtos section.section \"CatálogoProdutos e acessórios8 p\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "section#sobre \"Sobre a NorteUma loja para experimentar.\"",
+   "msg": "the section starts at 2849px, 149px below the screen grid (3 x 900px): sections start on whole screens (SR-2)",
+   "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "section#sobre \"Sobre a NorteUma loja para experimentar.\""
+   ]
+  },
+  {
+   "check": "section-height",
+   "where": "main#main > section.hero \"Norte / catálogo 2026Tecnologia parao di\"",
+   "msg": "the section starts at 114px, 114px below the screen grid (0 x 900px): sections start on whole screens (SR-2)",
+   "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-height"
+   ],
+   "wheres": [
+    "main#main > section.hero \"Norte / catálogo 2026Tecnologia parao di\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "footer#contato \"NNorte.Design & tecnologia para o dia a \"",
+   "msg": "the screen at scroll 3045px (the top of section 4) shows 196px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "footer#contato \"NNorte.Design & tecnologia para o dia a \""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
+   "msg": "the screen at scroll 2700px (stride 3) shows 149px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "section#produtos \"CatálogoProdutos e acessórios8 produtosB\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div#root \"Ir para o conteúdoFrete grátis em pedido\"",
+   "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div#root \"Ir para o conteúdoFrete grátis em pedido\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "main#main > section.hero \"Norte / catálogo 2026Tecnologia parao di\"",
+   "msg": "the section needs exactly one in-flow child .wrap (it has 1 in-flow child, 0 .wrap) (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "main#main > section.hero \"Norte / catálogo 2026Tecnologia parao di\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
+   "msg": "the section needs exactly one in-flow child .wrap (it has 1 in-flow child, 0 .wrap) (and 2 more like it: \"Sobre a NorteUma loja pa\", \"NNorte.Design & tecnolog\") (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "section#produtos \"CatálogoProdutos e acessórios8 produtosB\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "input#search",
+   "msg": "a box over half the container wide runs 80-1065px, not on the container's lines at 80-1360px (SR-6)",
+   "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "input#search"
+   ]
+  },
+  {
+   "check": "stagger",
+   "where": "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\"",
+   "msg": "8 rows start at 2 different left offsets (+9, +0, +12, +9, +12, +12, +0, +12px)",
+   "fix": "start every row of the list on one left edge",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "stagger"
+   ],
+   "wheres": [
+    "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos h3 \"Fone Bluetooth Studio\"",
+   "msg": "starts at x 104; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos h3 \"Fone Bluetooth Studio\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos p.product-description \"Cancelamento de ruído e até 30h \"",
+   "msg": "starts at x 104; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos p.product-description \"Cancelamento de ruído e até 30h \""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos h3 \"Smartwatch Pulse\"",
+   "msg": "starts at x 430; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos h3 \"Smartwatch Pulse\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos p.product-description \"Monitor de sono, treinos e notif\"",
+   "msg": "starts at x 430; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos p.product-description \"Monitor de sono, treinos e notif\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos h3 \"Teclado Mecânico 65%\"",
+   "msg": "starts at x 756; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos h3 \"Teclado Mecânico 65%\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos p.product-description \"Switches lineares, hot-swap e ca\"",
+   "msg": "starts at x 756; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos p.product-description \"Switches lineares, hot-swap e ca\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos h3 \"Mouse Sem Fio Slim\"",
+   "msg": "starts at x 1082; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos h3 \"Mouse Sem Fio Slim\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos p.product-description \"Design ergonômico, silencioso e \"",
+   "msg": "starts at x 1082; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos p.product-description \"Design ergonômico, silencioso e \""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos h3 \"Mochila Urbana 20L\"",
+   "msg": "starts at x 104; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos h3 \"Mochila Urbana 20L\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos p.product-description \"Compartimento para notebook de a\"",
+   "msg": "starts at x 104; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos p.product-description \"Compartimento para notebook de a\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos h3 \"Caixa de Som Mini\"",
+   "msg": "starts at x 430; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos h3 \"Caixa de Som Mini\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos p.product-description \"Som 360°, resistente à água e 12\"",
+   "msg": "starts at x 430; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos p.product-description \"Som 360°, resistente à água e 12\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos h3 \"Luminária de Mesa\"",
+   "msg": "starts at x 756; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos h3 \"Luminária de Mesa\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos p.product-description \"Luz quente regulável e base mini\"",
+   "msg": "starts at x 756; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos p.product-description \"Luz quente regulável e base mini\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos h3 \"Óculos de Sol Norte\"",
+   "msg": "starts at x 1082; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos h3 \"Óculos de Sol Norte\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#produtos p.product-description \"Proteção UV400 com armação leve.\"",
+   "msg": "starts at x 1082; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#produtos p.product-description \"Proteção UV400 com armação leve.\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#sobre h3 \"Carrinho salvo\"",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#sobre h3 \"Carrinho salvo\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#sobre p \"Seus itens permanecem neste nave\"",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#sobre p \"Seus itens permanecem neste nave\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#sobre h3 \"Lista de favoritos\"",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#sobre h3 \"Lista de favoritos\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#sobre p \"Salve produtos para comparar dep\"",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#sobre p \"Salve produtos para comparar dep\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#sobre h3 \"Checkout demonstrativo\"",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#sobre h3 \"Checkout demonstrativo\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#sobre p \"Experimente o fluxo sem realizar\"",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#sobre p \"Experimente o fluxo sem realizar\""
+   ]
+  },
+  {
+   "check": "screen-short",
+   "where": "section.hero.is-still section.hero.is-still \"Norte / catálogo 2026Tecnologia \"",
+   "msg": "786px tall; one screen under the nav is 900px",
+   "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "screen-short"
+   ],
+   "wheres": [
+    "section.hero.is-still section.hero.is-still \"Norte / catálogo 2026Tecnologia \""
+   ]
+  },
+  {
+   "check": "hero-fold",
+   "where": "section.hero.is-still section.hero.is-still \"Norte / catálogo 2026Tecnologia \"",
+   "msg": "starts at y 114, not under the nav",
+   "fix": "the hero fills the first screen alone, its button inside it",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "hero-fold"
+   ],
+   "wheres": [
+    "section.hero.is-still section.hero.is-still \"Norte / catálogo 2026Tecnologia \""
+   ]
+  }
+ ],
+ "waived": [],
+ "warnCount": 22,
+ "at": "2026-11-12T00:58:24.023Z",
+ "openTold": true
+}
