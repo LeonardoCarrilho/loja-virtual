@@ -24,7 +24,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -529,7 +529,8 @@ footer[id] {
 }
 
 .sort-field select:focus {
-  outline: none;
+  outline: 3px solid var(--brand);
+  outline-offset: 4px;
 }
 
 .category-pills {
@@ -1846,3 +1847,5 @@ footer[id] {
 /* Keyboard and alignment refinements from the first browser gate. */
 .header-actions{margin-left:auto}.hero-inner,.about-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}.product-rating{color:var(--ink)}.sort-field select:focus{outline:3px solid var(--brand);outline-offset:4px}.search-field input:focus-visible,.add-button:focus-visible{outline:3px solid var(--brand);outline-offset:4px}.search-field .sr-only{position:static;display:block;width:auto;height:auto;margin:0 0 8px;padding:0;overflow:visible;clip:auto;white-space:normal;font-size:15px;color:var(--ink)}.search-field>svg,.clear-search{top:calc(50% + 14px)}.catalog-toolbar{align-items:end}
 @media(max-width:920px){.about-grid{grid-template-columns:1fr}}@media(max-width:700px){.hero-inner{grid-template-columns:1fr}.catalog-toolbar{align-items:stretch}}
+
+.site-footer a:focus-visible{outline:3px solid #fff;outline-offset:4px}

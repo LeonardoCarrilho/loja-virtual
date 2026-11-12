@@ -50,3 +50,14 @@ for (const width of [1440, 1024, 820, 768, 390, 320]) {
   expect(errors).toEqual([]);
  });
 }
+
+test('catalogue keyboard focus remains visible',async({page})=>{
+ await page.setViewportSize({width:1440,height:900});await page.goto('./');await page.evaluate(()=>document.fonts.ready);
+ for(let index=0;index<40;index++){
+  await page.keyboard.press('Tab');
+  const focus=await page.evaluate(()=>{const e=document.activeElement;const r=e.getBoundingClientRect();return {tag:e.tagName,outline:getComputedStyle(e).outlineStyle,visible:r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth};});
+  if(focus.tag==='BODY')break;
+  expect(focus.visible).toBe(true);expect(focus.outline).not.toBe('none');
+  if(await page.locator('.site-footer a:focus').count())expect(await page.locator('.site-footer a:focus').evaluate(e=>getComputedStyle(e).outlineColor)).toBe('rgb(255, 255, 255)');
+ }
+});

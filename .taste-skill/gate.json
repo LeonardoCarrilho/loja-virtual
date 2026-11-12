@@ -1,9 +1,9 @@
 {
  "start": "2026-11-11T23:45:49.722Z",
- "round": 1,
+ "round": 3,
  "idle": 0,
  "errors": 0,
- "status": "fail",
+ "status": "open",
  "history": [
   {
    "at": "2026-11-12T00:17:03.213Z",
@@ -11,6 +11,24 @@
    "status": "fail",
    "fails": 50,
    "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-12T00:53:40.437Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 44,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-12T00:58:24.022Z",
+   "mode": "manual",
+   "status": "open",
+   "fails": 42,
+   "round": 3,
    "reused": false,
    "stopHookActive": false
   }
@@ -28,11 +46,11 @@
   "by": "gate.mjs --start"
  },
  "manual": true,
- "roundKey": "8d8762cbf744f48a:da39a3ee",
+ "roundKey": "601ffb493d4f0bdd:da39a3ee",
  "roundFree": false,
  "idleFree": false,
  "blockKey": null,
- "fp": "8d8762cbf744f48a",
+ "fp": "601ffb493d4f0bdd",
  "page": "dist/index.html",
  "found": {
   "fails": [
@@ -87,23 +105,6 @@
     ]
    },
    {
-    "check": "text-contrast",
-    "where": "div.product-grid > article.product-card:nth-of-type(1) > div.product-info > div.product-rating \"★ 4.9 de 5\"",
-    "msg": "body text in #7a4a4e on #f5f4f2 reads 6.55:1 (needs 7:1); 8 like it, like \"★ 4.8 de 5\", \"★ 4.7 de 5\", \"★ 4.6 de 5\"",
-    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
-    "widths": [
-     1440,
-     390
-    ],
-    "from": "consistency",
-    "ids": [
-     "text-contrast"
-    ],
-    "wheres": [
-     "div.product-grid > article.product-card:nth-of-type(1) > div.product-info > div.product-rating \"★ 4.9 de 5\""
-    ]
-   },
-   {
     "check": "photo-repeat",
     "where": "div.product-grid > article.product-card:nth-of-type(2) > div.product-media > img \"2.jpg\"",
     "msg": "the photograph 2.jpg is shown 2 times on the page: a picture the visitor has already seen",
@@ -123,7 +124,7 @@
    {
     "check": "product-shown",
     "where": "div.container.hero-inner > div.hero-visual > div.hero-media > img \"img: Relógio da seleção de tecnologia\"",
-    "msg": "the hero's product is drawn 566 x 398px, 44% of the 1280px content width at 1440px (its img is 623px wide): a product page shows the product at 80% of the content width or more (under 60% FAILs)",
+    "msg": "the hero's product is drawn 570 x 402px, 45% of the 1280px content width at 1440px (its img is 628px wide): a product page shows the product at 80% of the content width or more (under 60% FAILs)",
     "fix": "make the product the hero: the picture across the full content width (a stage as wide as the container, the product filling it, not a rounded box with the product at its middle); a render's still cropped to the product (data-product-fill up to 1.2, a wide view such as side), or the client's photograph at full width",
     "widths": [
      1440
@@ -137,41 +138,9 @@
     ]
    },
    {
-    "check": "field-label",
-    "where": "input#search",
-    "msg": "a input[type=search] without a label you can see: its <label> is hidden",
-    "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "field-label"
-    ],
-    "wheres": [
-     "input#search"
-    ]
-   },
-   {
-    "check": "focus-ring",
-    "where": ".sort-field select:focus",
-    "msg": "\".sort-field select:focus\" in index-pQ16ADCe.css removes the focus outline and sets nothing in its place",
-    "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "focus-ring"
-    ],
-    "wheres": [
-     ".sort-field select:focus"
-    ]
-   },
-   {
     "check": "focus-visible",
-    "where": "input#search",
-    "msg": "Tab stop 9, input \"\": the focus lands on something you cannot see",
+    "where": "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"Norte.\"",
+    "msg": "Tab stop 36, a \"Norte.\": its focus change is faint: 1:1 against the ground, 3:1 needed",
     "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
     "widths": [
      1440
@@ -181,13 +150,13 @@
      "focus-visible"
     ],
     "wheres": [
-     "input#search"
+     "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"Norte.\""
     ]
    },
    {
     "check": "focus-visible",
-    "where": "select#sort \"Relevância Menor preço Maior preço Nome \"",
-    "msg": "Tab stop 10, select \"Relevância Menor preço Maior preço Nome A-Z Melhor\": it shows no change when focused",
+    "where": "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a \"Fotografias via Unsplash\"",
+    "msg": "Tab stop 37, a \"Fotografias via Unsplash\": its focus change is faint: 1:1 against the ground, 3:1 needed",
     "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
     "widths": [
      1440
@@ -197,23 +166,7 @@
      "focus-visible"
     ],
     "wheres": [
-     "select#sort \"Relevância Menor preço Maior preço Nome \""
-    ]
-   },
-   {
-    "check": "focus-visible",
-    "where": "article.product-card:nth-of-type(1) > div.product-info:nth-of-type(2) > div.product-bottom:nth-of-type(2) > button.add-button \"Adicionar Fone Bluetooth Studio ao carri\"",
-    "msg": "Tab stop 21, button \"Adicionar Fone Bluetooth Studio ao carrinho\": the focus lands on something you cannot see",
-    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "focus-visible"
-    ],
-    "wheres": [
-     "article.product-card:nth-of-type(1) > div.product-info:nth-of-type(2) > div.product-bottom:nth-of-type(2) > button.add-button \"Adicionar Fone Bluetooth Studio ao carri\""
+     "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a \"Fotografias via Unsplash\""
     ]
    },
    {
@@ -235,7 +188,7 @@
    {
     "check": "section-height",
     "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
-    "msg": "the section is 1921px tall (2.1 screens), 121px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "msg": "the section is 1949px tall (2.2 screens), 149px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)",
     "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
     "widths": [
      1440,
@@ -254,7 +207,7 @@
    {
     "check": "section-height",
     "where": "section#sobre \"Sobre a NorteUma loja para experimentar.\"",
-    "msg": "the section starts at 2821px, 121px below the screen grid (3 x 900px): sections start on whole screens (SR-2)",
+    "msg": "the section starts at 2849px, 149px below the screen grid (3 x 900px): sections start on whole screens (SR-2)",
     "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
     "widths": [
      1440
@@ -286,7 +239,7 @@
    {
     "check": "one-section",
     "where": "footer#contato \"NNorte.Design & tecnologia para o dia a \"",
-    "msg": "the screen at scroll 3017px (the top of section 4) shows 196px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "msg": "the screen at scroll 3045px (the top of section 4) shows 196px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
     "widths": [
      1440
@@ -302,7 +255,7 @@
    {
     "check": "one-section",
     "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
-    "msg": "the screen at scroll 2700px (stride 3) shows 121px of section 2 beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+    "msg": "the screen at scroll 2700px (stride 3) shows 149px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
     "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
     "widths": [
      1440
@@ -313,22 +266,6 @@
     ],
     "wheres": [
      "section#produtos \"CatálogoProdutos e acessórios8 produtosB\""
-    ]
-   },
-   {
-    "check": "container-edges",
-    "where": "div#top > header.site-header \"NNorte.ProdutosSobreContatoFavoritos0Car\"",
-    "msg": "the nav's content runs 80px from the left and 693px from the right (read from its outermost blocks: no .wrap): 80 and 693px are not one margin (one container, equal margins, 2px either way) (SR-6)",
-    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "container-edges"
-    ],
-    "wheres": [
-     "div#top > header.site-header \"NNorte.ProdutosSobreContatoFavoritos0Car\""
     ]
    },
    {
@@ -396,22 +333,6 @@
     ]
    },
    {
-    "check": "split-pair",
-    "where": "main#main > section.hero > div.container.hero-inner \"Norte / catálogo 2026Tecnologia parao di\"",
-    "msg": "the two columns of the split start 54px apart at the top (centred on each other): a split's columns are top-aligned, 8px either way (SR-8)",
-    "fix": "top-align both columns of the split (align-items: start)",
-    "widths": [
-     1440
-    ],
-    "from": "consistency",
-    "ids": [
-     "split-pair"
-    ],
-    "wheres": [
-     "main#main > section.hero > div.container.hero-inner \"Norte / catálogo 2026Tecnologia parao di\""
-    ]
-   },
-   {
     "check": "stagger",
     "where": "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\"",
     "msg": "8 rows start at 2 different left offsets (+9, +0, +12, +9, +12, +12, +0, +12px)",
@@ -425,22 +346,6 @@
     ],
     "wheres": [
      "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\""
-    ]
-   },
-   {
-    "check": "edge-left",
-    "where": "section.hero.is-still div.hero-visual",
-    "msg": "starts at x 737.2; the lines are 80 and the column starts",
-    "fix": "start it on the .wrap left line",
-    "widths": [
-     1440
-    ],
-    "from": "layout",
-    "ids": [
-     "edge-left"
-    ],
-    "wheres": [
-     "section.hero.is-still div.hero-visual"
     ]
    },
    {
@@ -701,24 +606,8 @@
    },
    {
     "check": "edge-left",
-    "where": "#sobre div.benefits \"🚚Carrinho salvoSeus itens perma\"",
-    "msg": "starts at x 752; the lines are 80 and the column starts",
-    "fix": "start it on the .wrap left line",
-    "widths": [
-     1440
-    ],
-    "from": "layout",
-    "ids": [
-     "edge-left"
-    ],
-    "wheres": [
-     "#sobre div.benefits \"🚚Carrinho salvoSeus itens perma\""
-    ]
-   },
-   {
-    "check": "edge-left",
     "where": "#sobre h3 \"Carrinho salvo\"",
-    "msg": "starts at x 810; the lines are 80 and the column starts",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
     "fix": "start it on the .wrap left line",
     "widths": [
      1440,
@@ -735,7 +624,7 @@
    {
     "check": "edge-left",
     "where": "#sobre p \"Seus itens permanecem neste nave\"",
-    "msg": "starts at x 810; the lines are 80 and the column starts",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
     "fix": "start it on the .wrap left line",
     "widths": [
      1440,
@@ -752,7 +641,7 @@
    {
     "check": "edge-left",
     "where": "#sobre h3 \"Lista de favoritos\"",
-    "msg": "starts at x 810; the lines are 80 and the column starts",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
     "fix": "start it on the .wrap left line",
     "widths": [
      1440,
@@ -769,7 +658,7 @@
    {
     "check": "edge-left",
     "where": "#sobre p \"Salve produtos para comparar dep\"",
-    "msg": "starts at x 810; the lines are 80 and the column starts",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
     "fix": "start it on the .wrap left line",
     "widths": [
      1440,
@@ -786,7 +675,7 @@
    {
     "check": "edge-left",
     "where": "#sobre h3 \"Checkout demonstrativo\"",
-    "msg": "starts at x 810; the lines are 80 and the column starts",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
     "fix": "start it on the .wrap left line",
     "widths": [
      1440,
@@ -803,7 +692,7 @@
    {
     "check": "edge-left",
     "where": "#sobre p \"Experimente o fluxo sem realizar\"",
-    "msg": "starts at x 810; the lines are 80 and the column starts",
+    "msg": "starts at x 790; the lines are 80 and the column starts",
     "fix": "start it on the .wrap left line",
     "widths": [
      1440,
@@ -860,6 +749,17 @@
     "fix": "no line under a picture: never how it was made, what it shows, what is missing or what will follow (credits: one footer line)",
     "widths": [
      1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav",
+    "where": "div#top > header.site-header > div.container.header-inner > a.logo \"N Norte.\"",
+    "msg": "the nav is lopsided: its first item starts 13px inside the content's edge (80px), while its last ends on the other edge",
+    "fix": "start the nav's first item and end its last on the content's two edges",
+    "widths": [
+     1440,
+     390
     ],
     "from": "consistency"
    },
@@ -926,16 +826,6 @@
     "from": "consistency"
    },
    {
-    "check": "photo-set",
-    "where": "div.product-grid > article.product-card:nth-of-type(6) > div.product-media > img \"6.jpg\"",
-    "msg": "5 photographs in more than one look: lightness from 0.42 to 0.93; saturation from 0.00 to 0.41; the odd one out is 6.jpg",
-    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
     "check": "photo-credit",
     "where": "(the page text)",
     "msg": "1 library source (unsplash): the page credits unsplash; confirm each shows the client's own product, place or people",
@@ -986,26 +876,6 @@
     "from": "consistency"
    },
    {
-    "check": "split-pair",
-    "where": "section#sobre > div.container.about-grid \"Sobre a NorteUma loja para experimentar.\"",
-    "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 752, the first split's at 737; its right column starts at x 752, on none of the split lines 623 (k=5), 732 (k=6), 841 (k=7) (it is in a scroll scene: told as a WARN) (SR-8)",
-    "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "nav",
-    "where": "div#top > header.site-header > div.container.header-inner > a.logo \"N Norte.\"",
-    "msg": "the nav is lopsided: its first item starts 13px inside the content's edge (24px), while its last ends on the other edge",
-    "fix": "start the nav's first item and end its last on the content's two edges",
-    "widths": [
-     390
-    ],
-    "from": "consistency"
-   },
-   {
     "check": "tap-size",
     "where": "div#top > header.site-header > div.container.header-inner > a.logo \"N Norte.\"",
     "msg": "a 106x36px tap target: under the 44px a phone needs",
@@ -1022,8 +892,7 @@
     "msg": "a 144x23px tap target: under the 44px a phone needs",
     "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
     "widths": [
-     390,
-     320
+     390
     ],
     "from": "consistency"
    },
@@ -1102,8 +971,8 @@
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 93,
-   "layout": 14
+   "consistency": 83,
+   "layout": 13
   }
  },
  "open": [
@@ -1158,23 +1027,6 @@
    ]
   },
   {
-   "check": "text-contrast",
-   "where": "div.product-grid > article.product-card:nth-of-type(1) > div.product-info > div.product-rating \"★ 4.9 de 5\"",
-   "msg": "body text in #7a4a4e on #f5f4f2 reads 6.55:1 (needs 7:1); 8 like it, like \"★ 4.8 de 5\", \"★ 4.7 de 5\", \"★ 4.6 de 5\"",
-   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
-   "widths": [
-    1440,
-    390
-   ],
-   "from": "consistency",
-   "ids": [
-    "text-contrast"
-   ],
-   "wheres": [
-    "div.product-grid > article.product-card:nth-of-type(1) > div.product-info > div.product-rating \"★ 4.9 de 5\""
-   ]
-  },
-  {
    "check": "photo-repeat",
    "where": "div.product-grid > article.product-card:nth-of-type(2) > div.product-media > img \"2.jpg\"",
    "msg": "the photograph 2.jpg is shown 2 times on the page: a picture the visitor has already seen",
@@ -1194,7 +1046,7 @@
   {
    "check": "product-shown",
    "where": "div.container.hero-inner > div.hero-visual > div.hero-media > img \"img: Relógio da seleção de tecnologia\"",
-   "msg": "the hero's product is drawn 566 x 398px, 44% of the 1280px content width at 1440px (its img is 623px wide): a product page shows the product at 80% of the content width or more (under 60% FAILs)",
+   "msg": "the hero's product is drawn 570 x 402px, 45% of the 1280px content width at 1440px (its img is 628px wide): a product page shows the product at 80% of the content width or more (under 60% FAILs)",
    "fix": "make the product the hero: the picture across the full content width (a stage as wide as the container, the product filling it, not a rounded box with the product at its middle); a render's still cropped to the product (data-product-fill up to 1.2, a wide view such as side), or the client's photograph at full width",
    "widths": [
     1440
@@ -1208,41 +1060,9 @@
    ]
   },
   {
-   "check": "field-label",
-   "where": "input#search",
-   "msg": "a input[type=search] without a label you can see: its <label> is hidden",
-   "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "field-label"
-   ],
-   "wheres": [
-    "input#search"
-   ]
-  },
-  {
-   "check": "focus-ring",
-   "where": ".sort-field select:focus",
-   "msg": "\".sort-field select:focus\" in index-pQ16ADCe.css removes the focus outline and sets nothing in its place",
-   "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "focus-ring"
-   ],
-   "wheres": [
-    ".sort-field select:focus"
-   ]
-  },
-  {
    "check": "focus-visible",
-   "where": "input#search",
-   "msg": "Tab stop 9, input \"\": the focus lands on something you cannot see",
+   "where": "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"Norte.\"",
+   "msg": "Tab stop 36, a \"Norte.\": its focus change is faint: 1:1 against the ground, 3:1 needed",
    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
    "widths": [
     1440
@@ -1252,13 +1072,13 @@
     "focus-visible"
    ],
    "wheres": [
-    "input#search"
+    "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light \"Norte.\""
    ]
   },
   {
    "check": "focus-visible",
-   "where": "select#sort \"Relevância Menor preço Maior preço Nome \"",
-   "msg": "Tab stop 10, select \"Relevância Menor preço Maior preço Nome A-Z Melhor\": it shows no change when focused",
+   "where": "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a \"Fotografias via Unsplash\"",
+   "msg": "Tab stop 37, a \"Fotografias via Unsplash\": its focus change is faint: 1:1 against the ground, 3:1 needed",
    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
    "widths": [
     1440
@@ -1268,23 +1088,7 @@
     "focus-visible"
    ],
    "wheres": [
-    "select#sort \"Relevância Menor preço Maior preço Nome \""
-   ]
-  },
-  {
-   "check": "focus-visible",
-   "where": "article.product-card:nth-of-type(1) > div.product-info:nth-of-type(2) > div.product-bottom:nth-of-type(2) > button.add-button \"Adicionar Fone Bluetooth Studio ao carri\"",
-   "msg": "Tab stop 21, button \"Adicionar Fone Bluetooth Studio ao carrinho\": the focus lands on something you cannot see",
-   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "focus-visible"
-   ],
-   "wheres": [
-    "article.product-card:nth-of-type(1) > div.product-info:nth-of-type(2) > div.product-bottom:nth-of-type(2) > button.add-button \"Adicionar Fone Bluetooth Studio ao carri\""
+    "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a \"Fotografias via Unsplash\""
    ]
   },
   {
@@ -1306,7 +1110,7 @@
   {
    "check": "section-height",
    "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
-   "msg": "the section is 1921px tall (2.1 screens), 121px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)",
+   "msg": "the section is 1949px tall (2.2 screens), 149px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)",
    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
    "widths": [
     1440,
@@ -1325,7 +1129,7 @@
   {
    "check": "section-height",
    "where": "section#sobre \"Sobre a NorteUma loja para experimentar.\"",
-   "msg": "the section starts at 2821px, 121px below the screen grid (3 x 900px): sections start on whole screens (SR-2)",
+   "msg": "the section starts at 2849px, 149px below the screen grid (3 x 900px): sections start on whole screens (SR-2)",
    "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
    "widths": [
     1440
@@ -1357,7 +1161,7 @@
   {
    "check": "one-section",
    "where": "footer#contato \"NNorte.Design & tecnologia para o dia a \"",
-   "msg": "the screen at scroll 3017px (the top of section 4) shows 196px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "msg": "the screen at scroll 3045px (the top of section 4) shows 196px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
    "widths": [
     1440
@@ -1373,7 +1177,7 @@
   {
    "check": "one-section",
    "where": "section#produtos \"CatálogoProdutos e acessórios8 produtosB\"",
-   "msg": "the screen at scroll 2700px (stride 3) shows 121px of section 2 beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+   "msg": "the screen at scroll 2700px (stride 3) shows 149px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
    "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
    "widths": [
     1440
@@ -1384,22 +1188,6 @@
    ],
    "wheres": [
     "section#produtos \"CatálogoProdutos e acessórios8 produtosB\""
-   ]
-  },
-  {
-   "check": "container-edges",
-   "where": "div#top > header.site-header \"NNorte.ProdutosSobreContatoFavoritos0Car\"",
-   "msg": "the nav's content runs 80px from the left and 693px from the right (read from its outermost blocks: no .wrap): 80 and 693px are not one margin (one container, equal margins, 2px either way) (SR-6)",
-   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "container-edges"
-   ],
-   "wheres": [
-    "div#top > header.site-header \"NNorte.ProdutosSobreContatoFavoritos0Car\""
    ]
   },
   {
@@ -1467,22 +1255,6 @@
    ]
   },
   {
-   "check": "split-pair",
-   "where": "main#main > section.hero > div.container.hero-inner \"Norte / catálogo 2026Tecnologia parao di\"",
-   "msg": "the two columns of the split start 54px apart at the top (centred on each other): a split's columns are top-aligned, 8px either way (SR-8)",
-   "fix": "top-align both columns of the split (align-items: start)",
-   "widths": [
-    1440
-   ],
-   "from": "consistency",
-   "ids": [
-    "split-pair"
-   ],
-   "wheres": [
-    "main#main > section.hero > div.container.hero-inner \"Norte / catálogo 2026Tecnologia parao di\""
-   ]
-  },
-  {
    "check": "stagger",
    "where": "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\"",
    "msg": "8 rows start at 2 different left offsets (+9, +0, +12, +9, +12, +12, +0, +12px)",
@@ -1496,22 +1268,6 @@
    ],
    "wheres": [
     "section#produtos > div.container > div.product-grid \"MAIS VENDIDO Áudio Fone Bluetooth Studio\""
-   ]
-  },
-  {
-   "check": "edge-left",
-   "where": "section.hero.is-still div.hero-visual",
-   "msg": "starts at x 737.2; the lines are 80 and the column starts",
-   "fix": "start it on the .wrap left line",
-   "widths": [
-    1440
-   ],
-   "from": "layout",
-   "ids": [
-    "edge-left"
-   ],
-   "wheres": [
-    "section.hero.is-still div.hero-visual"
    ]
   },
   {
@@ -1772,24 +1528,8 @@
   },
   {
    "check": "edge-left",
-   "where": "#sobre div.benefits \"🚚Carrinho salvoSeus itens perma\"",
-   "msg": "starts at x 752; the lines are 80 and the column starts",
-   "fix": "start it on the .wrap left line",
-   "widths": [
-    1440
-   ],
-   "from": "layout",
-   "ids": [
-    "edge-left"
-   ],
-   "wheres": [
-    "#sobre div.benefits \"🚚Carrinho salvoSeus itens perma\""
-   ]
-  },
-  {
-   "check": "edge-left",
    "where": "#sobre h3 \"Carrinho salvo\"",
-   "msg": "starts at x 810; the lines are 80 and the column starts",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
    "fix": "start it on the .wrap left line",
    "widths": [
     1440,
@@ -1806,7 +1546,7 @@
   {
    "check": "edge-left",
    "where": "#sobre p \"Seus itens permanecem neste nave\"",
-   "msg": "starts at x 810; the lines are 80 and the column starts",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
    "fix": "start it on the .wrap left line",
    "widths": [
     1440,
@@ -1823,7 +1563,7 @@
   {
    "check": "edge-left",
    "where": "#sobre h3 \"Lista de favoritos\"",
-   "msg": "starts at x 810; the lines are 80 and the column starts",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
    "fix": "start it on the .wrap left line",
    "widths": [
     1440,
@@ -1840,7 +1580,7 @@
   {
    "check": "edge-left",
    "where": "#sobre p \"Salve produtos para comparar dep\"",
-   "msg": "starts at x 810; the lines are 80 and the column starts",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
    "fix": "start it on the .wrap left line",
    "widths": [
     1440,
@@ -1857,7 +1597,7 @@
   {
    "check": "edge-left",
    "where": "#sobre h3 \"Checkout demonstrativo\"",
-   "msg": "starts at x 810; the lines are 80 and the column starts",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
    "fix": "start it on the .wrap left line",
    "widths": [
     1440,
@@ -1874,7 +1614,7 @@
   {
    "check": "edge-left",
    "where": "#sobre p \"Experimente o fluxo sem realizar\"",
-   "msg": "starts at x 810; the lines are 80 and the column starts",
+   "msg": "starts at x 790; the lines are 80 and the column starts",
    "fix": "start it on the .wrap left line",
    "widths": [
     1440,
@@ -1924,6 +1664,7 @@
   }
  ],
  "waived": [],
- "warnCount": 24,
- "at": "2026-11-12T00:17:03.213Z"
+ "warnCount": 22,
+ "at": "2026-11-12T00:58:24.023Z",
+ "openTold": true
 }

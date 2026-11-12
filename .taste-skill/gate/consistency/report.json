@@ -1,7 +1,7 @@
 {
  "page": "C:\\Users\\leoca\\Documents\\Codex\\2026-11-10\\jarvis-continuidade\\work\\redesign\\loja-virtual\\dist\\index.html",
  "url": "http://127.0.0.1:5200/index.html",
- "at": "2026-11-12T00:15:16.464Z",
+ "at": "2026-11-12T00:56:47.806Z",
  "out": "C:\\Users\\leoca\\Documents\\Codex\\2026-11-10\\jarvis-continuidade\\work\\redesign\\loja-virtual\\.taste-skill\\gate\\consistency",
  "widths": [
   {
@@ -18,7 +18,7 @@
      "text": "MAIS VENDIDO Áudio Fone Bluetooth Studio Cancela",
      "msg": "8 of 8 cards drawn one way (one panel, ground, placement and fragment): copies of one card",
      "stop": 2,
-     "crop": "1440-08-card-layout.jpg",
+     "crop": "1440-07-card-layout.jpg",
      "fix": "a card layout at most twice on a page: build the other sections another way"
     },
     {
@@ -28,7 +28,7 @@
      "text": "Uma loja para experimentar.",
      "msg": "the last section before the footer ends with no button",
      "stop": 4,
-     "crop": "1440-13-cta.jpg",
+     "crop": "1440-11-cta.jpg",
      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
@@ -38,18 +38,8 @@
      "text": "Uma loja para experimentar.",
      "msg": "\"Uma loja para experimentar.\" names no product, part, place or section (4 headings like it; at most one brand line per page) (and 3 more like it: \"Carrinho salvo\", \"Lista de favoritos\", \"Checkout demonstrativo\")",
      "stop": 4,
-     "crop": "1440-14-copy-headings.jpg",
+     "crop": "1440-12-copy-headings.jpg",
      "fix": "name the thing in every heading: the product, a part, the place or a section noun"
-    },
-    {
-     "check": "text-contrast",
-     "sev": "FAIL",
-     "sel": "div.product-grid > article.product-card:nth-of-type(1) > div.product-info > div.product-rating",
-     "text": "★ 4.9 de 5",
-     "stop": 2,
-     "msg": "body text in #7a4a4e on #f5f4f2 reads 6.55:1 (needs 7:1); 8 like it, like \"★ 4.8 de 5\", \"★ 4.7 de 5\", \"★ 4.6 de 5\"",
-     "crop": "1440-09-text-contrast.jpg",
-     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
     },
     {
      "check": "photo-repeat",
@@ -58,64 +48,37 @@
      "text": "2.jpg",
      "msg": "the photograph 2.jpg is shown 2 times on the page: a picture the visitor has already seen",
      "fix": "show each view of the product once: the hero side, the product section three-quarter, the use scene, the parts as close-ups or the exploded view, the order rear-quarter",
-     "stop": 1,
-     "crop": "1440-06-photo-repeat.jpg"
+     "stop": 2,
+     "crop": "1440-08-photo-repeat.jpg"
     },
     {
      "check": "product-shown",
      "sev": "FAIL",
      "sel": "div.container.hero-inner > div.hero-visual > div.hero-media > img",
      "text": "img: Relógio da seleção de tecnologia",
-     "msg": "the hero's product is drawn 566 x 398px, 44% of the 1280px content width at 1440px (its img is 623px wide): a product page shows the product at 80% of the content width or more (under 60% FAILs)",
+     "msg": "the hero's product is drawn 570 x 402px, 45% of the 1280px content width at 1440px (its img is 628px wide): a product page shows the product at 80% of the content width or more (under 60% FAILs)",
      "fix": "make the product the hero: the picture across the full content width (a stage as wide as the container, the product filling it, not a rounded box with the product at its middle); a render's still cropped to the product (data-product-fill up to 1.2, a wide view such as side), or the client's photograph at full width",
      "stop": 0,
      "crop": "1440-01-product-shown.jpg"
     },
     {
-     "check": "field-label",
-     "sev": "FAIL",
-     "sel": "input#search",
-     "text": "",
-     "msg": "a input[type=search] without a label you can see: its <label> is hidden",
-     "stop": 1,
-     "crop": "1440-07-field-label.jpg",
-     "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label"
-    },
-    {
-     "check": "focus-ring",
-     "sev": "FAIL",
-     "sel": ".sort-field select:focus",
-     "text": "",
-     "msg": "\".sort-field select:focus\" in index-pQ16ADCe.css removes the focus outline and sets nothing in its place",
-     "stop": null,
-     "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it"
-    },
-    {
      "check": "focus-visible",
      "sev": "FAIL",
-     "sel": "input#search",
-     "text": "",
-     "stop": 6,
-     "msg": "Tab stop 9, input \"\": the focus lands on something you cannot see",
-     "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus"
-    },
-    {
-     "check": "focus-visible",
-     "sev": "FAIL",
-     "sel": "select#sort",
-     "text": "Relevância Menor preço Maior preço Nome A-Z Melhor",
+     "sel": "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light",
+     "text": "Norte.",
      "stop": 7,
-     "msg": "Tab stop 10, select \"Relevância Menor preço Maior preço Nome A-Z Melhor\": it shows no change when focused",
-     "crop": "1440-18-focus-visible.jpg",
+     "msg": "Tab stop 36, a \"Norte.\": its focus change is faint: 1:1 against the ground, 3:1 needed",
+     "crop": "1440-16-focus-visible.jpg",
      "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus"
     },
     {
      "check": "focus-visible",
      "sev": "FAIL",
-     "sel": "article.product-card:nth-of-type(1) > div.product-info:nth-of-type(2) > div.product-bottom:nth-of-type(2) > button.add-button",
-     "text": "Adicionar Fone Bluetooth Studio ao carrinho",
-     "stop": 9,
-     "msg": "Tab stop 21, button \"Adicionar Fone Bluetooth Studio ao carrinho\": the focus lands on something you cannot see",
+     "sel": "footer#contato > div.container.footer-inner > div.footer-meta:nth-of-type(2) > a",
+     "text": "Fotografias via Unsplash",
+     "stop": 8,
+     "msg": "Tab stop 37, a \"Fotografias via Unsplash\": its focus change is faint: 1:1 against the ground, 3:1 needed",
+     "crop": "1440-17-focus-visible.jpg",
      "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus"
     },
     {
@@ -125,8 +88,18 @@
      "text": "Áudio Fone Bluetooth Studio Cancelamento de ruíd",
      "msg": "8 lines of words sit right under a picture, like \"Áudio Fone Bluetooth Studio Cancelamento\": the section's text says it, or the picture speaks for itself",
      "stop": 2,
-     "crop": "1440-10-caption.jpg",
+     "crop": "1440-09-caption.jpg",
      "fix": "no line under a picture: never how it was made, what it shows, what is missing or what will follow (credits: one footer line)"
+    },
+    {
+     "check": "nav",
+     "sev": "WARN",
+     "sel": "div#top > header.site-header > div.container.header-inner > a.logo",
+     "text": "N Norte.",
+     "stop": 0,
+     "msg": "the nav is lopsided: its first item starts 13px inside the content's edge (80px), while its last ends on the other edge",
+     "fix": "start the nav's first item and end its last on the content's two edges",
+     "crop": "1440-02-nav.jpg"
     },
     {
      "check": "scroll-reveal",
@@ -135,7 +108,7 @@
      "text": "A Norte é uma loja fictícia criada como projeto ",
      "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 4,
-     "crop": "1440-15-scroll-reveal.jpg",
+     "crop": "1440-13-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -145,7 +118,7 @@
      "text": "Caixa de Som Mini",
      "msg": "the card title \"Caixa de Som Mini\" names no product, part, place or section (2 card titles like it) (and 1 more like it: \"Luminária de Mesa\")",
      "stop": 3,
-     "crop": "1440-12-copy-headings.jpg",
+     "crop": "1440-10-copy-headings.jpg",
      "fix": "name the thing in every heading: the product, a part, the place or a section noun"
     },
     {
@@ -155,7 +128,7 @@
      "text": "Carrinho",
      "msg": "\"Carrinho\" does not start with a verb (book, buy, try, start, get, see...) (and 1 more like it: \"Ver produtos\")",
      "stop": 0,
-     "crop": "1440-02-copy-buttons.jpg",
+     "crop": "1440-03-copy-buttons.jpg",
      "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")"
     },
     {
@@ -174,7 +147,7 @@
      "text": "Frete grátis em pedidos acima de R$ 250 · Troca ",
      "stop": 0,
      "msg": "9 of 11 paragraphs of running text are set under 16px (13, 14px)",
-     "crop": "1440-03-body-size.jpg",
+     "crop": "1440-04-body-size.jpg",
      "fix": "set running text at 16px or more"
     },
     {
@@ -184,18 +157,8 @@
      "text": "Contato",
      "msg": "\"Contato\" goes to #contato, in the footer",
      "stop": 0,
-     "crop": "1440-04-links.jpg",
+     "crop": "1440-05-links.jpg",
      "fix": "point every link at a real section, page or file"
-    },
-    {
-     "check": "photo-set",
-     "sev": "WARN",
-     "sel": "div.product-grid > article.product-card:nth-of-type(6) > div.product-media > img",
-     "text": "6.jpg",
-     "stop": 2,
-     "msg": "5 photographs in more than one look: lightness from 0.42 to 0.93; saturation from 0.00 to 0.41; the odd one out is 6.jpg",
-     "crop": "1440-11-photo-set.jpg",
-     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "photo-credit",
@@ -213,7 +176,7 @@
      "text": "Sobre",
      "msg": "\"Sobre\" opens a section headed \"Uma loja para experimentar.\"",
      "stop": 0,
-     "crop": "1440-05-nav-labels.jpg",
+     "crop": "1440-06-nav-labels.jpg",
      "fix": "name each nav link after the heading of the section it opens"
     },
     {
@@ -221,9 +184,9 @@
      "sev": "WARN",
      "sel": "section#produtos > div.container > div.category-pills:nth-of-type(4) > button:nth-of-type(1)",
      "text": "Todos",
-     "stop": 8,
+     "stop": 6,
      "msg": "Tab stop 14, button \"Todos\": its focus ring fades in instead of showing at once",
-     "crop": "1440-19-focus-visible.jpg",
+     "crop": "1440-15-focus-visible.jpg",
      "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus"
     },
     {
@@ -259,7 +222,7 @@
      "sev": "FAIL",
      "sel": "section#produtos",
      "text": "CatálogoProdutos e acessórios8 produtosB",
-     "msg": "the section is 1921px tall (2.1 screens), 121px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)",
+     "msg": "the section is 1949px tall (2.2 screens), 149px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)",
      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
      "rule": "SR-2 T-height"
     },
@@ -268,7 +231,7 @@
      "sev": "FAIL",
      "sel": "section#sobre",
      "text": "Sobre a NorteUma loja para experimentar.",
-     "msg": "the section starts at 2821px, 121px below the screen grid (3 x 900px): sections start on whole screens (SR-2)",
+     "msg": "the section starts at 2849px, 149px below the screen grid (3 x 900px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid"
     },
@@ -277,7 +240,7 @@
      "sev": "FAIL",
      "sel": "footer#contato",
      "text": "NNorte.Design & tecnologia para o dia a ",
-     "msg": "the section starts at 3721px, 121px below the screen grid (4 x 900px): sections start on whole screens (SR-2)",
+     "msg": "the section starts at 3749px, 149px below the screen grid (4 x 900px): sections start on whole screens (SR-2)",
      "fix": "make every section above it exactly one or two screens tall, so this one starts on a whole screen",
      "rule": "SR-2 T-grid"
     },
@@ -304,7 +267,7 @@
      "sev": "FAIL",
      "sel": "footer#contato",
      "text": "NNorte.Design & tecnologia para o dia a ",
-     "msg": "the screen at scroll 3017px (the top of section 4) shows 196px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "msg": "the screen at scroll 3045px (the top of section 4) shows 196px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views",
      "crop": "1440-rhythm-02-one-section.jpg"
@@ -314,7 +277,7 @@
      "sev": "FAIL",
      "sel": "section#produtos",
      "text": "CatálogoProdutos e acessórios8 produtosB",
-     "msg": "the screen at scroll 2700px (stride 3) shows 121px of section 2 beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+     "msg": "the screen at scroll 2700px (stride 3) shows 149px of section 2 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
      "rule": "SR-4 T-views"
     },
@@ -330,21 +293,12 @@
     {
      "check": "container-edges",
      "sev": "FAIL",
-     "sel": "div#top > header.site-header",
-     "text": "NNorte.ProdutosSobreContatoFavoritos0Car",
-     "msg": "the nav's content runs 80px from the left and 693px from the right (read from its outermost blocks: no .wrap): 80 and 693px are not one margin (one container, equal margins, 2px either way) (SR-6)",
-     "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
-     "rule": "SR-6 T1-margins",
-     "crop": "1440-rhythm-03-container-edges.jpg"
-    },
-    {
-     "check": "container-edges",
-     "sev": "FAIL",
      "sel": "div#root",
      "text": "Ir para o conteúdoFrete grátis em pedido",
      "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
      "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
-     "rule": "SR-6 T1-structure"
+     "rule": "SR-6 T1-structure",
+     "crop": "1440-rhythm-03-container-edges.jpg"
     },
     {
      "check": "container-edges",
@@ -372,34 +326,6 @@
      "msg": "a box over half the container wide runs 80-1065px, not on the container's lines at 80-1360px (SR-6)",
      "fix": "run the picture or box from the container's left line to its right line, or put it in a row or a split",
      "rule": "SR-6 T6-right-edges"
-    },
-    {
-     "check": "split-pair",
-     "sev": "FAIL",
-     "sel": "main#main > section.hero > div.container.hero-inner",
-     "text": "Norte / catálogo 2026Tecnologia parao di",
-     "msg": "the two columns of the split start 54px apart at the top (centred on each other): a split's columns are top-aligned, 8px either way (SR-8)",
-     "fix": "top-align both columns of the split (align-items: start)",
-     "rule": "SR-8 T-mode",
-     "crop": "1440-rhythm-04-split-pair.jpg"
-    },
-    {
-     "check": "split-pair",
-     "sev": "FAIL",
-     "sel": "main#main > section.hero > div.container.hero-inner",
-     "text": "Norte / catálogo 2026Tecnologia parao di",
-     "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 737, on none of the split lines 623 (k=5), 732 (k=6), 841 (k=7) (SR-8)",
-     "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
-     "rule": "SR-8 T-pair"
-    },
-    {
-     "check": "split-pair",
-     "sev": "WARN",
-     "sel": "section#sobre > div.container.about-grid",
-     "text": "Sobre a NorteUma loja para experimentar.",
-     "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 752, the first split's at 737; its right column starts at x 752, on none of the split lines 623 (k=5), 732 (k=6), 841 (k=7) (it is in a scroll scene: told as a WARN) (SR-8)",
-     "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
-     "rule": "SR-8 T-pair"
     }
    ],
    "glAsked": 0
@@ -418,7 +344,7 @@
      "text": "MAIS VENDIDO Áudio Fone Bluetooth Studio Cancela",
      "msg": "8 of 8 cards drawn one way (one panel, ground, placement and fragment): copies of one card",
      "stop": 3,
-     "crop": "390-10-card-layout.jpg",
+     "crop": "390-09-card-layout.jpg",
      "fix": "a card layout at most twice on a page: build the other sections another way"
     },
     {
@@ -428,7 +354,7 @@
      "text": "Uma loja para experimentar.",
      "msg": "the last section before the footer ends with no button",
      "stop": 9,
-     "crop": "390-14-cta.jpg",
+     "crop": "390-13-cta.jpg",
      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
@@ -442,16 +368,6 @@
      "fix": "start every row of the list on one left edge"
     },
     {
-     "check": "text-contrast",
-     "sev": "FAIL",
-     "sel": "div.product-grid > article.product-card:nth-of-type(1) > div.product-info > div.product-rating",
-     "text": "★ 4.9 de 5",
-     "stop": 2,
-     "msg": "body text in #7a4a4e on #f5f4f2 reads 6.55:1 (needs 7:1); 8 like it, like \"★ 4.8 de 5\", \"★ 4.7 de 5\", \"★ 4.6 de 5\"",
-     "crop": "390-08-text-contrast.jpg",
-     "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels"
-    },
-    {
      "check": "photo-repeat",
      "sev": "FAIL",
      "sel": "div.product-grid > article.product-card:nth-of-type(2) > div.product-media > img",
@@ -459,7 +375,7 @@
      "msg": "the photograph 2.jpg is shown 2 times on the page: a picture the visitor has already seen",
      "fix": "show each view of the product once: the hero side, the product section three-quarter, the use scene, the parts as close-ups or the exploded view, the order rear-quarter",
      "stop": 3,
-     "crop": "390-11-photo-repeat.jpg"
+     "crop": "390-10-photo-repeat.jpg"
     },
     {
      "check": "nav",
@@ -508,7 +424,7 @@
      "text": "N Norte.",
      "msg": "a 106x36px tap target: under the 44px a phone needs",
      "stop": 9,
-     "crop": "390-15-tap-size.jpg",
+     "crop": "390-14-tap-size.jpg",
      "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
     },
     {
@@ -518,7 +434,7 @@
      "text": "Fotografias via Unsplash",
      "msg": "a 163x24px tap target: under the 44px a phone needs",
      "stop": 10,
-     "crop": "390-16-tap-size.jpg",
+     "crop": "390-15-tap-size.jpg",
      "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
     },
     {
@@ -528,7 +444,7 @@
      "text": "A Norte é uma loja fictícia criada como projeto ",
      "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 8,
-     "crop": "390-13-scroll-reveal.jpg",
+     "crop": "390-12-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -558,7 +474,7 @@
      "text": "1.jpg",
      "stop": 2,
      "msg": "7 photographs in more than one look: lightness from 0.44 to 0.83; saturation from 0.00 to 0.89; warm and cool photographs mixed (b* -7 to +58); the odd one out is 1.jpg",
-     "crop": "390-09-photo-set.jpg",
+     "crop": "390-08-photo-set.jpg",
      "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
@@ -568,7 +484,7 @@
      "text": "Compartimento para notebook de até 15,6\".",
      "msg": "its last line holds only \"15,6\".\"",
      "stop": 5,
-     "crop": "390-12-orphan.jpg",
+     "crop": "390-11-orphan.jpg",
      "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word"
     }
    ],
@@ -620,20 +536,10 @@
    {
     "check": "tap-size",
     "sev": "WARN",
-    "sel": "select#sort",
-    "text": "Relevância Menor preço Maior preço Nome A-Z Melh",
-    "msg": "a 144x23px tap target: under the 44px a phone needs",
-    "crop": "narrow-320-02-tap-size.jpg",
-    "width": 320,
-    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
-   },
-   {
-    "check": "tap-size",
-    "sev": "WARN",
     "sel": "input#price-min",
     "text": "",
     "msg": "a 110x32px tap target (and 1 more like it on this screen): under the 44px a phone needs",
-    "crop": "narrow-320-03-tap-size.jpg",
+    "crop": "narrow-320-02-tap-size.jpg",
     "width": 320,
     "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
    },
@@ -643,7 +549,7 @@
     "sel": "footer#contato > div.container.footer-inner > div:nth-of-type(1) > a.logo.logo-light",
     "text": "N Norte.",
     "msg": "a 106x36px tap target: under the 44px a phone needs",
-    "crop": "narrow-320-04-tap-size.jpg",
+    "crop": "narrow-320-03-tap-size.jpg",
     "width": 320,
     "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
    },
@@ -653,15 +559,15 @@
     "sel": "footer#contato > div.container.footer-inner > div.footer-meta > a",
     "text": "Fotografias via Unsplash",
     "msg": "a 163x24px tap target: under the 44px a phone needs",
-    "crop": "narrow-320-05-tap-size.jpg",
+    "crop": "narrow-320-04-tap-size.jpg",
     "width": 320,
     "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
    }
   ]
  },
  "counts": {
-  "FAIL": 32,
-  "WARN": 30
+  "FAIL": 24,
+  "WARN": 28
  },
  "checks": {
   "assets": "PASS",
@@ -725,7 +631,7 @@
   "centre-axis": "PASS",
   "tilt": "PASS",
   "contrast": "PASS",
-  "text-contrast": "FAIL",
+  "text-contrast": "PASS",
   "body-size": "WARN",
   "busy-ground": "PASS",
   "section-gaps": "WARN",
@@ -783,7 +689,7 @@
   "one-heading": "PASS",
   "container-edges": "FAIL",
   "row-lines": "PASS",
-  "split-pair": "FAIL",
+  "split-pair": "PASS",
   "motion-layer": "PASS",
   "count-text": "PASS",
   "loop-cycle": "PASS",
@@ -791,10 +697,10 @@
   "empty-area": "PASS",
   "a11y-name": "PASS",
   "img-alt": "PASS",
-  "field-label": "FAIL",
+  "field-label": "PASS",
   "heading-order": "PASS",
   "tabindex": "PASS",
-  "focus-ring": "FAIL",
+  "focus-ring": "PASS",
   "focus-visible": "FAIL",
   "focus-hidden": "PASS",
   "skip-link": "WARN",
