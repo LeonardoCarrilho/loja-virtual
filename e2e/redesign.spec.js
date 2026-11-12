@@ -1,0 +1,52 @@
+import { test, expect } from '@playwright/test';
+for (const width of [1440, 1024, 820, 768, 390, 320]) {
+ test(`catalogue and complete checkout at ${width}`, async ({page}) => {
+  await page.setViewportSize({width,height:900});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('./');await page.evaluate(()=>document.fonts.ready);
+  await expect(page.locator('.product-card')).toHaveCount(8);
+  await expect(page.locator('label[for=search]')).toBeVisible();
+  await page.getByLabel('Buscar produtos').focus();
+  expect(await page.getByLabel('Buscar produtos').evaluate(el=>getComputedStyle(el).outlineStyle)).toBe('solid');
+  await page.getByLabel('Ordenar por').focus();
+  expect(await page.getByLabel('Ordenar por').evaluate(el=>getComputedStyle(el).outlineStyle)).toBe('solid');
+  await expect(page.locator('html')).toHaveAttribute('data-moments-ready','1');
+  for(const image of await page.locator('img').all()) { await image.scrollIntoViewIfNeeded(); await image.evaluate(img=>img.decode()); }
+  await page.evaluate(()=>scrollTo(0,0));
+  await expect(page.locator('.product-media.is-fallback')).toHaveCount(0);
+  if(width===1440) await page.screenshot({path:".taste-skill/preview.jpg",type:"jpeg",quality:88});
+  await page.screenshot({path:`.taste-skill/after-${width}.png`,fullPage:true});
+  await page.getByRole('button',{name:/Abrir carrinho/}).click();
+  await expect(page.locator('.cart-empty')).toBeVisible();
+  if([1440,390].includes(width)) await page.screenshot({path:`.taste-skill/cart-empty-${width}.png`});
+  await page.keyboard.press('Escape');
+  await page.getByRole('button',{name:/Adicionar .* aos favoritos/}).first().click();
+  await page.locator('.favorites-button').click();
+  await expect(page.locator('.product-card')).toHaveCount(1);
+  await page.locator('#produtos').scrollIntoViewIfNeeded();
+  if([1440,390].includes(width)) await page.screenshot({path:`.taste-skill/favorites-${width}.png`});
+  await page.locator('.favorites-button').click();
+  await page.getByLabel('Buscar produtos').fill('produto inexistente');
+  await expect(page.locator('.empty-catalog')).toBeVisible();
+  await page.getByLabel('Buscar produtos').fill('');
+  await page.getByRole('button',{name:/Adicionar .* ao carrinho/}).first().click();
+  await page.getByRole('button',{name:/Abrir carrinho/}).click();
+  await page.getByRole('button',{name:/Aumentar quantidade/}).click();
+  await expect(page.getByLabel('Quantidade: 2',{exact:true})).toBeVisible();
+  if([1440,390].includes(width)) await page.screenshot({path:`.taste-skill/cart-${width}.png`});
+  await page.getByRole('button',{name:'Finalizar compra',exact:true}).click();
+  await page.getByRole('button',{name:/Confirmar pedido/}).click();
+  await expect(page.getByText('Informe seu nome completo.')).toBeVisible();
+  if([1440,390].includes(width)) await page.screenshot({path:`.taste-skill/checkout-errors-${width}.png`});
+  await page.getByLabel('Nome completo').fill('Pessoa Teste');
+  await page.getByLabel('E-mail',{exact:true}).fill('pessoa@example.com');
+  await page.getByLabel('CEP',{exact:true}).fill('01001-000');
+  if([1440,390].includes(width)) await page.screenshot({path:`.taste-skill/checkout-${width}.png`});
+  await page.getByRole('button',{name:/Confirmar pedido/}).click();
+  await expect(page.getByText('Pedido confirmado!')).toBeVisible();
+  if([1440,390].includes(width)) await page.screenshot({path:`.taste-skill/success-${width}.png`});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  expect(errors).toEqual([]);
+ });
+}

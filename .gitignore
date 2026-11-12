@@ -13,3 +13,12 @@ test-results/
 # Local browser profiles
 .taste-skill/chrome*/
 .taste-skill/*.log
+
+# Reproducible visual crops stay local; retain summary reports and selected evidence.
+.taste-skill/gate/**
+!.taste-skill/gate/consistency/
+!.taste-skill/gate/consistency/report.json
+.taste-skill/after-1024.png
+.taste-skill/after-820.png
+.taste-skill/after-768.png
+.taste-skill/after-320.png

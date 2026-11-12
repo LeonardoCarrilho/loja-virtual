@@ -27,7 +27,7 @@ function HeroVisual() {
         ) : (
           <img
             src={products[1].image}
-            alt="Smartwatch Pulse em destaque"
+            alt="Relógio da seleção de tecnologia" data-source="stand-in" data-subject="Relógio"
             onError={() => setImageFailed(true)}
           />
         )}
@@ -114,7 +114,7 @@ export default function App() {
   return (
     <div id="top"><a className="skip-link" href="#main">Ir para o conteúdo</a>
       <div className="announcement">
-        Frete grátis em pedidos acima de R$ 250 · Lista de favoritos em 7 dias
+        Frete grátis em pedidos acima de R$ 250 · Troca fácil em 7 dias
       </div>
 
       <Header
@@ -322,7 +322,7 @@ export default function App() {
               </article>
               <article>
                 <span aria-hidden="true">↩️</span>
-                <h3>Troca fácil</h3>
+                <h3>Lista de favoritos</h3>
                 <p>Salve produtos para comparar depois.</p>
               </article>
               <article>
@@ -346,7 +346,7 @@ export default function App() {
           </div>
           <div className="footer-meta">
             <span>Projeto de demonstração</span>
-            <span>Feito com React + Vite</span>
+            <span>Feito com React + Vite</span><a href="https://unsplash.com" target="_blank" rel="noreferrer">Fotografias via Unsplash</a>
           </div>
         </div>
       </footer>

@@ -19,3 +19,7 @@ npm run lint, npm test, npm run test:coverage e, para interfaces, npm run build 
 ## Pendências externas
 
 Ativar Sentry e Codecov após criar/conectar contas. Confirmar TLS/proxy/headers no domínio real, proteção de branch e política de deploy. Não considerar essas etapas concluídas apenas por existir configuração no repositório.
+
+## Revisão de dependências — 2026-11-11
+
+O c8 foi removido porque nenhum script da loja o utiliza: a cobertura é produzida por Vitest e @vitest/coverage-v8. A remoção elimina a cadeia vulnerável test-exclude/glob/minimatch sem mudar o mecanismo de cobertura. Os 42 testes passam e a cobertura permanece em 95,19% das linhas medidas. `npm audit --audit-level=low` retorna zero vulnerabilidades.
